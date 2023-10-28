@@ -8,6 +8,7 @@ import { debounce } from 'lodash';
 import RegenerationIndicator from 'mastodon/components/regeneration_indicator';
 
 import StatusContainer from '../containers/status_container';
+import StatusContainerWithoutDm from '../containers/status_container_without_dm';
 
 import { LoadGap } from './load_gap';
 import ScrollableList from './scrollable_list';
@@ -98,18 +99,29 @@ export default class StatusList extends ImmutablePureComponent {
           maxId={index > 0 ? statusIds.get(index - 1) : null}
           onClick={onLoadMore}
         />
-      ) : (
-        <StatusContainer
-          key={statusId}
-          id={statusId}
-          onMoveUp={this.handleMoveUp}
-          onMoveDown={this.handleMoveDown}
-          contextType={timelineId}
-          scrollKey={this.props.scrollKey}
-          showThread
-          withCounters={this.props.withCounters}
-        />
-      ))
+      ) :
+      (timelineId == 'account' ?
+      <StatusContainerWithoutDm
+        key={statusId}
+        id={statusId}
+        onMoveUp={this.handleMoveUp}
+        onMoveDown={this.handleMoveDown}
+        contextType={timelineId}
+        scrollKey={this.props.scrollKey}
+        showThread
+        withCounters={this.props.withCounters}
+      /> 
+      :
+      <StatusContainer
+        key={statusId}
+        id={statusId}
+        onMoveUp={this.handleMoveUp}
+        onMoveDown={this.handleMoveDown}
+        contextType={timelineId}
+        scrollKey={this.props.scrollKey}
+        showThread
+        withCounters={this.props.withCounters}
+      />))
     ) : null;
 
     if (scrollableContent && featuredStatusIds) {

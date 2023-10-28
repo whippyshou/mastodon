@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { openModal } from 'mastodon/actions/modal';
-import { domain, version, source_url, statusPageUrl, profile_directory as profileDirectory } from 'mastodon/initial_state';
+import { title, version, source_url, statusPageUrl, profile_directory as profileDirectory } from 'mastodon/initial_state';
 import { PERMISSION_INVITE_USERS } from 'mastodon/permissions';
 import { logOut } from 'mastodon/utils/log_out';
 
@@ -64,7 +64,7 @@ class LinkFooter extends PureComponent {
     return (
       <div className='link-footer'>
         <p>
-          <strong>{domain}</strong>:
+          <strong>{title}</strong>:
           {' '}
           <Link to='/about' target={multiColumn ? '_blank' : undefined}><FormattedMessage id='footer.about' defaultMessage='About' /></Link>
           {statusPageUrl && (

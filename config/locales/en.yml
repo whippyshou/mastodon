@@ -1730,10 +1730,13 @@ en:
       too_late: It is too late to appeal this strike
   tags:
     does_not_match_previous_name: does not match the previous name
-  themes:
-    contrast: Mastodon (High contrast)
-    default: Mastodon (Dark)
-    mastodon-light: Mastodon (Light)
+     contrast: Mastodon (High contrast)
+     default: Mastodon Bird UI (Dark)
+     mastodon-bird-ui-light: Mastodon Bird UI (Light)
+     mastodon-light: Mastodon (Light)
+     mastodon-dark: Mastodon (Dark)
+     mastodon-bird-ui-light-vanilla: Mastodon Bird UI - vanila (Light)
+     mastodon-bird-ui-dark-vanilla: Mastodon Bird UI - vanila (dark)
   time:
     formats:
       default: "%b %d, %Y, %H:%M"

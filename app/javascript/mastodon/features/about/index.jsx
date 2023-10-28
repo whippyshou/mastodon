@@ -120,7 +120,7 @@ class About extends PureComponent {
         <div className='scrollable about'>
           <div className='about__header'>
             <ServerHeroImage blurhash={server.getIn(['thumbnail', 'blurhash'])} src={server.getIn(['thumbnail', 'url'])} srcSet={server.getIn(['thumbnail', 'versions'])?.map((value, key) => `${value} ${key.replace('@', '')}`).join(', ')} className='about__header__hero' />
-            <h1>{isLoading ? <Skeleton width='10ch' /> : server.get('domain')}</h1>
+            <h1>{isLoading ? <Skeleton width='10ch' /> : server.get('title')}</h1>
             <p><FormattedMessage id='about.powered_by' defaultMessage='Decentralized social media powered by {mastodon}' values={{ mastodon: <a href='https://joinmastodon.org' className='about__mail' target='_blank'>Mastodon</a> }} /></p>
           </div>
 
@@ -172,35 +172,6 @@ class About extends PureComponent {
                   </li>
                 ))}
               </ol>
-            ))}
-          </Section>
-
-          <Section title={intl.formatMessage(messages.blocks)} onOpen={this.handleDomainBlocksOpen}>
-            {domainBlocks.get('isLoading') ? (
-              <>
-                <Skeleton width='100%' />
-                <br />
-                <Skeleton width='70%' />
-              </>
-            ) : (domainBlocks.get('isAvailable') ? (
-              <>
-                <p><FormattedMessage id='about.domain_blocks.preamble' defaultMessage='Mastodon generally allows you to view content from and interact with users from any other server in the fediverse. These are the exceptions that have been made on this particular server.' /></p>
-
-                <div className='about__domain-blocks'>
-                  {domainBlocks.get('items').map(block => (
-                    <div className='about__domain-blocks__domain' key={block.get('domain')}>
-                      <div className='about__domain-blocks__domain__header'>
-                        <h6><span title={`SHA-256: ${block.get('digest')}`}>{block.get('domain')}</span></h6>
-                        <span className='about__domain-blocks__domain__type' title={intl.formatMessage(severityMessages[block.get('severity')].explanation)}>{intl.formatMessage(severityMessages[block.get('severity')].title)}</span>
-                      </div>
-
-                      <p>{(block.get('comment') || '').length > 0 ? block.get('comment') : <FormattedMessage id='about.domain_blocks.no_reason_available' defaultMessage='Reason not available' />}</p>
-                    </div>
-                  ))}
-                </div>
-              </>
-            ) : (
-              <p><FormattedMessage id='about.not_available' defaultMessage='This information has not been made available on this server.' /></p>
             ))}
           </Section>
 

@@ -21,6 +21,8 @@ export default class NavigationBar extends ImmutablePureComponent {
 
   render () {
     const username = this.props.account.get('acct')
+    const displayName = this.props.account.get('display_name');
+    
     return (
       <div className='navigation-bar'>
         <Link to={`/@${username}`}>
@@ -29,14 +31,16 @@ export default class NavigationBar extends ImmutablePureComponent {
         </Link>
 
         <div className='navigation-bar__profile'>
+        <span>
+            <Link to={`/@${username}`}>
+              <strong className='navigation-bar__profile-account'>{displayName}</strong>
+            </Link>
+          </span>
+          
           <span>
             <Link to={`/@${username}`}>
               <strong className='navigation-bar__profile-account'>@{username}</strong>
             </Link>
-          </span>
-
-          <span>
-            <a href='/settings/profile' className='navigation-bar__profile-edit'><FormattedMessage id='navigation_bar.edit_profile' defaultMessage='Edit profile' /></a>
           </span>
         </div>
 

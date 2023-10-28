@@ -70,7 +70,7 @@ class Rack::Attack
     req.authenticated_user_id if req.api_request?
   end
 
-  throttle('throttle_per_token_api', limit: 300, period: 5.minutes) do |req|
+  throttle('throttle_per_token_api', limit: 3000, period: 5.minutes) do |req|
     req.authenticated_token_id if req.api_request?
   end
 

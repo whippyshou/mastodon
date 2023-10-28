@@ -1701,8 +1701,12 @@ ko:
     does_not_match_previous_name: 이전 이름과 맞지 않습니다
   themes:
     contrast: 마스토돈 (고대비)
-    default: 마스토돈 (어두움)
+    default: 23.4 ~Ad Astra~ 테마 (비일상)
+    mastodon-bird-ui-light: 23.4 ~Ad Astra~ 테마 (일상)
     mastodon-light: 마스토돈 (밝음)
+    mastodon-dark: 마스토돈 (어두움)
+    mastodon-bird-ui-light-vanilla: 파란새풍 테마 (밝음)
+    mastodon-bird-ui-dark-vanilla: 파란새풍 테마 (어두움)
   time:
     formats:
       default: "%Y-%m-%d %H:%M"
