@@ -10,9 +10,7 @@ Rails.application.routes.draw do
     /getting-started
     /keyboard-shortcuts
     /home
-    /public
     /public/local
-    /public/remote
     /conversations
     /lists/(*any)
     /notifications
@@ -21,7 +19,6 @@ Rails.application.routes.draw do
     /pinned
     /start
     /directory
-    /explore/(*any)
     /search
     /publish
     /follow_requests
