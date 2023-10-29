@@ -67,7 +67,6 @@ const makeMapStateToProps = () => {
   const getPictureInPicture = makeGetPictureInPicture();
 
   const mapStateToProps = (state, props) => ({
-    //여기 status 바꿈
     status: getStatus(state, props).get('visibility')!=='direct'?  getStatus(state, props) : null,
     nextInReplyToId: props.nextId ? state.getIn(['statuses', props.nextId, 'in_reply_to_id']) : null,
     pictureInPicture: getPictureInPicture(state, props),

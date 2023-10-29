@@ -425,6 +425,9 @@ class Notification extends ImmutablePureComponent {
     const displayNameHtml  = { __html: account.get('display_name_html') };
     const link             = <bdi><Link className='notification__display-name' href={`/@${account.get('acct')}`} title={account.get('acct')} to={`/@${account.get('acct')}`} dangerouslySetInnerHTML={displayNameHtml} /></bdi>;
 
+    if (!notification)
+      return null;
+    
     switch(notification.get('type')) {
     case 'follow':
       return this.renderFollow(notification, account, link);

@@ -35,6 +35,7 @@ import NotificationsPermissionBanner from './components/notifications_permission
 import ColumnSettingsContainer from './containers/column_settings_container';
 import FilterBarContainer from './containers/filter_bar_container';
 import NotificationContainer from './containers/notification_container';
+import NotificationContainerWithoutDm from './containers/notification_container_without_dm';
 
 const messages = defineMessages({
   title: { id: 'column.notifications', defaultMessage: 'Notifications' },
@@ -82,6 +83,7 @@ class Notifications extends PureComponent {
   };
 
   static propTypes = {
+    allowedType: PropTypes.string,
     columnId: PropTypes.string,
     notifications: ImmutablePropTypes.list.isRequired,
     showFilterBar: PropTypes.bool.isRequired,
@@ -187,7 +189,7 @@ class Notifications extends PureComponent {
   };
 
   render () {
-    const { intl, notifications, isLoading, isUnread, columnId, multiColumn, hasMore, numPending, showFilterBar, lastReadId, canMarkAsRead, needsNotificationPermission, allwoType} = this.props;
+    const { intl, notifications, isLoading, isUnread, columnId, multiColumn, hasMore, numPending, showFilterBar, lastReadId, canMarkAsRead, needsNotificationPermission, allowedType} = this.props;
     const pinned = !!columnId;
     const emptyMessage = <FormattedMessage id='empty_column.notifications' defaultMessage="You don't have any notifications yet. When other people interact with you, you will see it here." />;
     const { signedIn } = this.context.identity;
@@ -209,7 +211,8 @@ class Notifications extends PureComponent {
           onClick={this.handleLoadGap}
         />
       ) : (
-        <NotificationContainer
+        allowedType === 'mention'?(
+          <NotificationContainerWithoutDm
           key={item.get('id')}
           notification={item}
           accountId={item.get('account')}
@@ -217,6 +220,16 @@ class Notifications extends PureComponent {
           onMoveDown={this.handleMoveDown}
           unread={lastReadId !== '0' && compareId(item.get('id'), lastReadId) > 0}
         />
+        ) : (
+          <NotificationContainer
+            key={item.get('id')}
+            notification={item}
+            accountId={item.get('account')}
+            onMoveUp={this.handleMoveUp}
+            onMoveDown={this.handleMoveDown}
+            unread={lastReadId !== '0' && compareId(item.get('id'), lastReadId) > 0}
+          />
+        )
       ));
     } else {
       scrollableContent = null;
