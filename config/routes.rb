@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     /search
     /publish
     /follow_requests
+    /direct_messages
     /blocks
     /domain_blocks
     /mutes

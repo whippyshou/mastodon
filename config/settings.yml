@@ -2,23 +2,23 @@
 # important settings can be changed from the admin interface.
 
 defaults: &defaults
-  site_title: Mastodon Whippy Edition
+  site_title: Whippy Edition
   site_short_description: ''
   site_description: ''
   site_extended_description: ''
   site_terms: ''
   site_contact_username: ''
-  site_contact_email: ''
+  site_contact_email: 'whippyshou@gmail.com'
   registrations_mode: 'open'
   profile_directory: true
   closed_registrations_message: ''
-  timeline_preview: true
+  timeline_preview: false
   show_staff_badge: true
   preview_sensitive_media: false
-  noindex: false
+  noindex: true
   theme: 'default'
-  trends: true
-  trends_as_landing_page: true
+  trends: false
+  trends_as_landing_page: false
   trendable_by_default: false
   reserved_usernames:
     - admin

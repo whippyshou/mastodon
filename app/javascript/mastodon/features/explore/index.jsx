@@ -55,8 +55,6 @@ class Explore extends PureComponent {
     const { signedIn } = this.context.identity;
 
     return (
-
-      signedIn && (
       <Column bindToDocument={!multiColumn} ref={this.setRef} label={intl.formatMessage(messages.title)}>
         <ColumnHeader
           icon={isSearching ? 'search' : 'hashtag'}
@@ -108,7 +106,7 @@ class Explore extends PureComponent {
             </Helmet>
           </>
         )}
-      </Column> )
+      </Column>
     );
   }
 
