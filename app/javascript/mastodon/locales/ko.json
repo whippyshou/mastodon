@@ -460,6 +460,7 @@
   "notifications.filter.all": "모두",
   "notifications.filter.boosts": "부스트",
   "notifications.filter.favourites": "좋아요",
+  "notifications.filter.directmessages": "다이렉트 메시지",
   "notifications.filter.follows": "팔로우",
   "notifications.filter.mentions": "멘션",
   "notifications.filter.polls": "설문 결과",

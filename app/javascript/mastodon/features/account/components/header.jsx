@@ -303,9 +303,9 @@ class Header extends ImmutablePureComponent {
       menu.push({ text: intl.formatMessage(messages.edit_profile), href: '/settings/profile' });
       menu.push({ text: intl.formatMessage(messages.preferences), href: '/settings/preferences' });
       menu.push({ text: intl.formatMessage(messages.pins), to: '/pinned' });
-      menu.push({ text: intl.formatMessage(messages.directMessages), to: '/direct_messages' });
       menu.push(null);
       menu.push({ text: intl.formatMessage(messages.follow_requests), to: '/follow_requests' });
+      menu.push({ text: intl.formatMessage(messages.directMessages), to: '/direct_messages' });
       menu.push({ text: intl.formatMessage(messages.favourites), to: '/favourites' });
       menu.push({ text: intl.formatMessage(messages.lists), to: '/lists' });
       menu.push({ text: intl.formatMessage(messages.followed_tags), to: '/followed_tags' });

@@ -1,15 +1,21 @@
 import PropTypes from 'prop-types';
 
 import classNames from 'classnames';
+import { withRouter } from "react-router-dom";
 
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import ImmutablePureComponent from 'react-immutable-pure-component';
 
 import { Blurhash } from 'mastodon/components/blurhash';
-import { Icon }  from 'mastodon/components/icon';
+import { Icon } from 'mastodon/components/icon';
 import { autoPlayGif, displayMedia, useBlurhash } from 'mastodon/initial_state';
 
 export default class MediaItem extends ImmutablePureComponent {
+
+  static contextTypes = {
+    identity: PropTypes.object,
+    router: PropTypes.object,
+  };
 
   static propTypes = {
     attachment: ImmutablePropTypes.map.isRequired,
@@ -39,30 +45,44 @@ export default class MediaItem extends ImmutablePureComponent {
     }
   };
 
-  hoverToPlay () {
+  hoverToPlay() {
     return !autoPlayGif && ['gifv', 'video'].indexOf(this.props.attachment.get('type')) !== -1;
   }
 
   handleClick = e => {
     if (e.button === 0 && !(e.ctrlKey || e.metaKey)) {
-      e.preventDefault();
-
-      if (this.state.visible) {
-        this.props.onOpenMedia(this.props.attachment);
-      } else {
-        this.setState({ visible: true });
-      }
+      this.handleHotkeyOpen();
     }
+    if (e) {
+      e.preventDefault();
+    }
+    return;
   };
 
-  render () {
+  handleHotkeyOpen = () => {
+    if (this.props.onClick) {
+      this.props.onClick();
+      return;
+    }
+
+    const { router } = this.context;
+    const status = this.props.attachment.get('status');
+
+    if (!router) {
+      return;
+    }
+
+    router.history.push(`/@${status.getIn(['account', 'acct'])}/${status.get('id')}`);
+  };
+
+  render() {
     const { attachment, displayWidth } = this.props;
     const { visible, loaded } = this.state;
 
-    const width  = `${Math.floor((displayWidth - 4) / 3) - 4}px`;
+    const width = `${Math.floor((displayWidth - 4) / 3) - 4}px`;
     const height = width;
     const status = attachment.get('status');
-    const title  = status.get('spoiler_text') || attachment.get('description');
+    const title = status.get('spoiler_text') || attachment.get('description');
 
     let thumbnail, label, icon, content;
 
@@ -91,8 +111,8 @@ export default class MediaItem extends ImmutablePureComponent {
       } else if (attachment.get('type') === 'image') {
         const focusX = attachment.getIn(['meta', 'focus', 'x']) || 0;
         const focusY = attachment.getIn(['meta', 'focus', 'y']) || 0;
-        const x      = ((focusX /  2) + .5) * 100;
-        const y      = ((focusY / -2) + .5) * 100;
+        const x = ((focusX / 2) + .5) * 100;
+        const y = ((focusY / -2) + .5) * 100;
 
         content = (
           <img
@@ -139,7 +159,7 @@ export default class MediaItem extends ImmutablePureComponent {
 
     return (
       <div className='account-gallery__item' style={{ width, height }}>
-        <a className='media-gallery__item-thumbnail' href={`/@${status.getIn(['account', 'acct'])}/${status.get('id')}`} onClick={this.handleClick} title={title} target='_blank' rel='noopener noreferrer'>
+        <a className='media-gallery__item-thumbnail' onClick={this.handleClick} title={title} target='_blank' rel='noopener noreferrer'>
           <Blurhash
             hash={attachment.get('blurhash')}
             className={classNames('media-gallery__preview', { 'media-gallery__preview--hidden': visible && loaded })}
