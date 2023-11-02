@@ -448,6 +448,7 @@
   "notifications.column_settings.follow": "New followers:",
   "notifications.column_settings.follow_request": "New follow requests:",
   "notifications.column_settings.mention": "Mentions:",
+  "notifications.column_settings.directmessage": "Direct Message:",
   "notifications.column_settings.poll": "Poll results:",
   "notifications.column_settings.push": "Push notifications",
   "notifications.column_settings.reblog": "Boosts:",

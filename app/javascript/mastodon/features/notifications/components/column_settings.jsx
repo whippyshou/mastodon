@@ -130,6 +130,17 @@ export default class ColumnSettings extends PureComponent {
           </div>
         </div>
 
+        
+        <div role='group' aria-labelledby='notifications-directmessage'>
+          <span id='notifications-directmessage' className='column-settings__section'><FormattedMessage id='notifications.column_settings.directmessage' defaultMessage='DirectMessage:' /></span>
+          <div className='column-settings__row'>
+            <SettingToggle disabled={browserPermission === 'denied'} prefix='notifications_desktop' settings={settings} settingPath={['alerts', 'direct']} onChange={onChange} label={alertStr} />
+            {showPushSettings && <SettingToggle prefix='notifications_push' settings={pushSettings} settingPath={['alerts', 'direct']} onChange={this.onPushChange} label={pushStr} />}
+            <SettingToggle prefix='notifications' settings={settings} settingPath={['shows', 'direct']} onChange={onChange} label={showStr} />
+            <SettingToggle prefix='notifications' settings={settings} settingPath={['sounds', 'direct']} onChange={onChange} label={soundStr} />
+          </div>
+        </div>
+
         <div role='group' aria-labelledby='notifications-reblog'>
           <span id='notifications-reblog' className='column-settings__section'><FormattedMessage id='notifications.column_settings.reblog' defaultMessage='Boosts:' /></span>
 

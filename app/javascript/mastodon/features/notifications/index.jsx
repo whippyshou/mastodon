@@ -13,7 +13,7 @@ import { createSelector } from 'reselect';
 import { debounce } from 'lodash';
 
 import { compareId } from 'mastodon/compare_id';
-import { Icon }  from 'mastodon/components/icon';
+import { Icon } from 'mastodon/components/icon';
 import { NotSignedInIndicator } from 'mastodon/components/not_signed_in_indicator';
 
 import { addColumn, removeColumn, moveColumn } from '../../actions/columns';
@@ -35,11 +35,10 @@ import NotificationsPermissionBanner from './components/notifications_permission
 import ColumnSettingsContainer from './containers/column_settings_container';
 import FilterBarContainer from './containers/filter_bar_container';
 import NotificationContainer from './containers/notification_container';
-import NotificationContainerWithoutDm from './containers/notification_container_without_dm';
 
 const messages = defineMessages({
   title: { id: 'column.notifications', defaultMessage: 'Notifications' },
-  markAsRead : { id: 'notifications.mark_as_read', defaultMessage: 'Mark every notification as read' },
+  markAsRead: { id: 'notifications.mark_as_read', defaultMessage: 'Mark every notification as read' },
 });
 
 const getExcludedTypes = createSelector([
@@ -55,17 +54,21 @@ const getNotifications = createSelector([
   state => state.getIn(['notifications', 'items']),
 ], (showFilterBar, allowedType, excludedTypes, notifications) => {
   if (!showFilterBar || allowedType === 'all') {
-    // used if user changed the notification settings after loading the notifications from the server
-    // otherwise a list of notifications will come pre-filtered from the backend
-    // we need to turn it off for FilterBar in order not to block ourselves from seeing a specific category
-    return notifications.filterNot(item => item !== null && excludedTypes.includes(item.get('type')));
+    return notifications.filterNot(item => item !== null && (excludedTypes.includes(item.get('type')) || ('mention' === item.get('type') && item.get('visibility') === 'direct' && excludedTypes.includes('direct'))));
   }
-  return notifications.filter(item => item === null || allowedType === item.get('type'));
+  else if (allowedType === 'direct') {
+    return notifications.filter(item => item === null || ('mention' === item.get('type') && item.get('visibility')==='direct'));
+  }
+  else if (allowedType==='mention'){
+    return notifications.filter(item => item === null || ('mention' === item.get('type') && item.get('visibility')!=='direct'));
+  }
+  return notifications.filter(item => item === null ||  allowedType === item.get('type'))
 });
 
 const mapStateToProps = state => ({
   showFilterBar: state.getIn(['settings', 'notifications', 'quickFilter', 'show']),
   notifications: getNotifications(state),
+  excludedTypes: getExcludedTypes(state),
   allowedType: state.getIn(['settings', 'notifications', 'quickFilter', 'active']),
   isLoading: state.getIn(['notifications', 'isLoading'], 0) > 0,
   isUnread: state.getIn(['notifications', 'unread']) > 0 || state.getIn(['notifications', 'pendingItems']).size > 0,
@@ -83,6 +86,7 @@ class Notifications extends PureComponent {
   };
 
   static propTypes = {
+    excludedTypes: ImmutablePropTypes.list,
     allowedType: PropTypes.string,
     columnId: PropTypes.string,
     notifications: ImmutablePropTypes.list.isRequired,
@@ -107,7 +111,7 @@ class Notifications extends PureComponent {
     this.props.dispatch(mountNotifications());
   }
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     this.handleLoadOlder.cancel();
     this.handleScrollToTop.cancel();
     this.handleScroll.cancel();
@@ -169,7 +173,7 @@ class Notifications extends PureComponent {
     this._selectChild(elementIndex, false);
   };
 
-  _selectChild (index, align_top) {
+  _selectChild(index, align_top) {
     const container = this.column.node;
     const element = container.querySelector(`article:nth-of-type(${index + 1}) .focusable`);
 
@@ -188,8 +192,8 @@ class Notifications extends PureComponent {
     this.props.dispatch(submitMarkers({ immediate: true }));
   };
 
-  render () {
-    const { intl, notifications, isLoading, isUnread, columnId, multiColumn, hasMore, numPending, showFilterBar, lastReadId, canMarkAsRead, needsNotificationPermission, allowedType} = this.props;
+  render() {
+    const { intl, notifications, isLoading, isUnread, columnId, multiColumn, hasMore, numPending, showFilterBar, lastReadId, canMarkAsRead, needsNotificationPermission, allowedType, excludedTypes } = this.props;
     const pinned = !!columnId;
     const emptyMessage = <FormattedMessage id='empty_column.notifications' defaultMessage="You don't have any notifications yet. When other people interact with you, you will see it here." />;
     const { signedIn } = this.context.identity;
@@ -210,9 +214,7 @@ class Notifications extends PureComponent {
           maxId={index > 0 ? notifications.getIn([index - 1, 'id']) : null}
           onClick={this.handleLoadGap}
         />
-      ) : (
-        allowedType === 'mention'?(
-          <NotificationContainerWithoutDm
+      ) : (<NotificationContainer
           key={item.get('id')}
           notification={item}
           accountId={item.get('account')}
@@ -220,16 +222,6 @@ class Notifications extends PureComponent {
           onMoveDown={this.handleMoveDown}
           unread={lastReadId !== '0' && compareId(item.get('id'), lastReadId) > 0}
         />
-        ) : (
-          <NotificationContainer
-            key={item.get('id')}
-            notification={item}
-            accountId={item.get('account')}
-            onMoveUp={this.handleMoveUp}
-            onMoveDown={this.handleMoveDown}
-            unread={lastReadId !== '0' && compareId(item.get('id'), lastReadId) > 0}
-          />
-        )
       ));
     } else {
       scrollableContent = null;

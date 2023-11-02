@@ -15,7 +15,7 @@ const initialState = ImmutableMap({
   skinTone: 1,
 
   trends: ImmutableMap({
-    show: true,
+    show: false,
   }),
 
   home: ImmutableMap({
@@ -36,6 +36,7 @@ const initialState = ImmutableMap({
       favourite: false,
       reblog: false,
       mention: false,
+      direct: false,
       poll: false,
       status: false,
       update: false,
@@ -58,6 +59,7 @@ const initialState = ImmutableMap({
       favourite: true,
       reblog: true,
       mention: true,
+      direct: true,
       poll: true,
       status: true,
       update: true,
@@ -71,6 +73,7 @@ const initialState = ImmutableMap({
       favourite: true,
       reblog: true,
       mention: true,
+      direct: true,
       poll: true,
       status: true,
       update: true,

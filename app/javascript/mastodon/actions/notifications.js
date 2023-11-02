@@ -126,7 +126,7 @@ export function updateNotifications(notification, intlMessages, intlLocale) {
 }
 
 const excludeTypesFromSettings = state => state.getIn(['settings', 'notifications', 'shows']).filter(enabled => !enabled).keySeq().toJS();
-
+ 
 const excludeTypesFromFilter = filter => {
   const allTypes = ImmutableList([
     'follow',
@@ -134,6 +134,7 @@ const excludeTypesFromFilter = filter => {
     'favourite',
     'reblog',
     'mention',
+    'direct',
     'poll',
     'status',
     'update',
@@ -141,7 +142,7 @@ const excludeTypesFromFilter = filter => {
     'admin.report',
   ]);
 
-  return allTypes.filterNot(item => item === filter).toJS();
+  return allTypes.filterNot(item => filter === 'direct'? item ==='mention' :item === filter ).toJS();
 };
 
 const noOp = () => {};

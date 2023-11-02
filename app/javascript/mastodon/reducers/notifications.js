@@ -51,6 +51,7 @@ const initialState = ImmutableMap({
 const notificationToMap = notification => ImmutableMap({
   id: notification.id,
   type: notification.type,
+  visibility: notification.status ? notification.status.visibility : null,
   account: notification.account.id,
   created_at: notification.created_at,
   status: notification.status ? notification.status.id : null,

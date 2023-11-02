@@ -232,7 +232,7 @@ body.theme-mastodon-bird-ui-light.layout-single-column {
   --logo: url('../images/skin/logo_light.png');
   --image-bg: url('../images/skin/bg_light.jpg');
   --columns-color : rgba(255, 255, 255, 0.3);
-  --color-bg: rgb(233, 233, 233);
+  --color-bg: var(--color-brand-mastodon-bg);
   --color-fg: #000;
   --color-border: #e6e1ed;
   --color-dim: #9388a6;

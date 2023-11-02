@@ -436,6 +436,8 @@ class Notification extends ImmutablePureComponent {
       return this.renderFollowRequest(notification, account, link);
     case 'mention':
       return this.renderMention(notification);
+    case 'direct':
+        return this.renderMention(notification);
     case 'favourite':
       return this.renderFavourite(notification, link);
     case 'reblog':

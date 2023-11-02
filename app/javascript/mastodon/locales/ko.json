@@ -448,6 +448,8 @@
   "notifications.column_settings.follow": "새 팔로워:",
   "notifications.column_settings.follow_request": "새 팔로우 요청:",
   "notifications.column_settings.mention": "멘션:",
+  "notifications.column_settings.directmessage": "다이렉트 메시지:",
+
   "notifications.column_settings.poll": "설문 결과:",
   "notifications.column_settings.push": "푸시 알림",
   "notifications.column_settings.reblog": "부스트:",
