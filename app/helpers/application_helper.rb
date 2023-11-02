@@ -121,11 +121,12 @@ module ApplicationHelper
     if status.public_visibility?
       fa_icon('globe', title: I18n.t('statuses.visibilities.public'))
     elsif status.unlisted_visibility?
-      fa_icon('unlock', title: I18n.t('statuses.visibilities.unlisted'))
+      fa_icon('cloud', title: I18n.t('statuses.visibilities.unlisted'))
+      #fa_icon('unlock', title: I18n.t('statuses.visibilities.unlisted'))
     elsif status.private_visibility? || status.limited_visibility?
       fa_icon('lock', title: I18n.t('statuses.visibilities.private'))
     elsif status.direct_visibility?
-      fa_icon('at', title: I18n.t('statuses.visibilities.direct'))
+      fa_icon('envelope', title: I18n.t('statuses.visibilities.direct'))
     end
   end
 

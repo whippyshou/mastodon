@@ -2749,6 +2749,7 @@ body.embed .button.logo-button:hover,
   position: relative;
 }
 
+.layout-single-column .detailed-status__wrapper-direct::after,
 .layout-single-column .status__wrapper-direct::after,
 .layout-single-column .detailed-status-direct::after {
   border-left: 20px solid transparent;
@@ -2761,7 +2762,7 @@ body.embed .button.logo-button:hover,
   top: 0;
   width: 0;
 }
-
+.layout-single-column .detailed-status__wrapper-direct::after,
 .layout-single-column .notification .status__wrapper-direct::after {
   top: -40px;
 }
