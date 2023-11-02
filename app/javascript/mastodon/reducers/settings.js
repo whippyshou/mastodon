@@ -20,7 +20,7 @@ const initialState = ImmutableMap({
 
   home: ImmutableMap({
     shows: ImmutableMap({
-      reblog: true,
+      media: true,
       reply: true,
     }),
 
@@ -28,6 +28,17 @@ const initialState = ImmutableMap({
       body: '',
     }),
   }),
+
+  local: ImmutableMap({
+    shows: ImmutableMap({
+      media: false
+    }),
+
+    regex: ImmutableMap({
+      body: '',
+    }),
+  }),
+
 
   notifications: ImmutableMap({
     alerts: ImmutableMap({

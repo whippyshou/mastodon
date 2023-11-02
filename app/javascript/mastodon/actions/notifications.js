@@ -142,7 +142,7 @@ const excludeTypesFromFilter = filter => {
     'admin.report',
   ]);
 
-  return allTypes.filterNot(item => filter === 'direct'? item ==='mention' :item === filter ).toJS();
+  return allTypes.filterNot(item => filter === 'direct'? item ==='mention':item === filter ).toJS();
 };
 
 const noOp = () => {};

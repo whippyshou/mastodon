@@ -76,7 +76,7 @@ class NavigationPanel extends Component {
           </>
         )}
         {(signedIn) && (
-          <ColumnLink transparent to='/public/local' isActive={this.isFirehoseActive} icon='hashtag' text={intl.formatMessage(messages.firehose)} />
+          <ColumnLink transparent to='/local' isActive={this.isFirehoseActive} icon='hashtag' text={intl.formatMessage(messages.firehose)} />
         )}
 
         {!signedIn && (

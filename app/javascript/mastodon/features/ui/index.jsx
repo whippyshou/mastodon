@@ -40,6 +40,7 @@ import {
   AccountTimeline,
   AccountGallery,
   HomeTimeline,
+  LocalTimeline,
   Followers,
   Following,
   Reblogs,
@@ -199,7 +200,12 @@ class SwitchingColumnsArea extends PureComponent {
           <Redirect from='/timelines/public/local' to='/public/local' exact />
           <WrappedRoute path='/public' exact component={Firehose} componentParams={{ feedType: 'public' }} content={children} />
           <WrappedRoute path='/public/local' exact component={Firehose} componentParams={{ feedType: 'community' }} content={children} />
-          <WrappedRoute path='/public/remote' exact component={Firehose} componentParams={{ feedType: 'public:remote' }} content={children} />
+
+
+          <Redirect from='/timelines/local' to='/local' exact />
+          <WrappedRoute path='/local' exact component={LocalTimeline} content={children} />
+
+
           <WrappedRoute path={['/conversations', '/timelines/direct']} component={DirectTimeline} content={children} />
           <WrappedRoute path='/tags/:id' component={HashtagTimeline} content={children} />
           <WrappedRoute path='/lists/:id' component={ListTimeline} content={children} />

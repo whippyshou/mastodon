@@ -1584,21 +1584,21 @@ body.embed > .activity-stream {
 body.embed .detailed-status__link > .fa-reply + span::after,
 .layout-single-column .detailed-status__link > .fa-reply + span::after {
   color: var(--color-dim);
-  content: 'Replies';
+  content: '답장';
   font-weight: var(--font-weight-semibold);
 }
 
 body.embed .detailed-status__link > .fa-retweet + span::after,
 .layout-single-column .detailed-status__link > .fa-retweet + span::after {
   color: var(--color-dim);
-  content: 'Boosts';
+  content: '부스트';
   font-weight: var(--font-weight-semibold);
 }
 
 body.embed .detailed-status__link > .fa-star + span::after,
 .layout-single-column .detailed-status__link > .fa-star + span::after {
   color: var(--color-dim);
-  content: 'Favourites';
+  content: '좋아요';
   font-weight: var(--font-weight-semibold);
 }
 
@@ -2994,6 +2994,10 @@ body.embed .button.logo-button:hover,
   }
 
   .layout-single-column .column-link[href="/public/local"] {
+    order: 5;
+  }
+
+  .layout-single-column .column-link[href="/local"] {
     order: 5;
   }
 

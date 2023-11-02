@@ -1551,21 +1551,21 @@ body.embed .detailed-status__favorites {
 body.embed .detailed-status__link > .fa-reply + span::after,
 .layout-multiple-columns .detailed-status__link > .fa-reply + span::after {
   color: var(--color-dim);
-  content: 'Replies';
+  content: '답장';
   font-weight: var(--font-weight-semibold);
 }
 
 body.embed .detailed-status__link > .fa-retweet + span::after,
 .layout-multiple-columns .detailed-status__link > .fa-retweet + span::after {
   color: var(--color-dim);
-  content: 'Boosts';
+  content: '부스트';
   font-weight: var(--font-weight-semibold);
 }
 
 body.embed .detailed-status__link > .fa-star + span::after,
 .layout-multiple-columns .detailed-status__link > .fa-star + span::after {
   color: var(--color-dim);
-  content: 'Favourites';
+  content: '좋아요';
   font-weight: var(--font-weight-semibold);
 }
 
@@ -2960,6 +2960,12 @@ body.embed .button.logo-button:hover,
   .layout-multiple-columns .column-link[href="/public/local"] {
     order: 5;
   }
+
+  
+  .layout-multiple-columns .column-link[href="/local"] {
+    order: 5;
+  }
+
 
   .layout-multiple-columns .column-link[href="/public"] {
     order: 6;
