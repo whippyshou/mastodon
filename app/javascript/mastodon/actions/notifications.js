@@ -62,9 +62,9 @@ export const loadPending = () => ({
 export function updateNotifications(notification, intlMessages, intlLocale) {
   return (dispatch, getState) => {
     const activeFilter = getState().getIn(['settings', 'notifications', 'quickFilter', 'active']);
-    const showInColumn = activeFilter === 'all' ? getState().getIn(['settings', 'notifications', 'shows', notification.type], true) : activeFilter === notification.type;
-    const showAlert    = getState().getIn(['settings', 'notifications', 'alerts', notification.type], true);
-    const playSound    = getState().getIn(['settings', 'notifications', 'sounds', notification.type], true);
+    const showInColumn = activeFilter === 'all' ? getState().getIn(['settings', 'notifications', 'shows', notification.type], true) : notification.type === 'mention' && notification.status.visibility === 'direct'? activeFilter ==='direct': notification.type;
+    const showAlert    =   notification.type === 'mention' && notification.status.visibility === 'direct'? getState().getIn(['settings', 'notifications', 'alerts', 'direct'], true) :  getState().getIn(['settings', 'notifications', 'alerts', notification.type], true);
+    const playSound    = notification.type === 'mention' && notification.status.visibility === 'direct'? getState().getIn(['settings', 'notifications', 'sounds', 'direct'], true) : getState().getIn(['settings', 'notifications', 'sounds', notification.type], true);
 
     let filtered = false;
 

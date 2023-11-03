@@ -56,13 +56,12 @@ const getNotifications = createSelector([
   if (!showFilterBar || allowedType === 'all') {
     return notifications.filterNot(item => item !== null && (excludedTypes.includes(item.get('type')) || ('mention' === item.get('type') && item.get('visibility') === 'direct' && excludedTypes.includes('direct'))));
   }
-  else if (allowedType === 'direct') {
-    return notifications.filter(item => item === null || ('mention' === item.get('type') && item.get('visibility')==='direct'));
-  }
-  else if (allowedType==='mention'){
-    return notifications.filter(item => item === null || ('mention' === item.get('type') && item.get('visibility')!=='direct'));
-  }
-  return notifications.filter(item => item === null ||  allowedType === item.get('type'))
+  else if (allowedType === 'direct')
+    return notifications.filter(item => item === null || ('mention' === item.get('type') && item.get('visibility') === 'direct'));
+  else if (allowedType === 'mention') 
+    return notifications.filter(item => item === null || ('mention' === item.get('type') && item.get('visibility') !== 'direct'));
+  else
+    return notifications.filter(item => item === null || allowedType === item.get('type'))
 });
 
 const mapStateToProps = state => ({
