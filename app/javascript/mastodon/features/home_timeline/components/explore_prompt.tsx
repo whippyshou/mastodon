@@ -26,21 +26,5 @@ export const ExplorePrompt = () => (
       />
     </p>
 
-    <div className='dismissable-banner__message__wrapper'>
-      <div className='dismissable-banner__message__actions'>
-        <Link to='/explore' className='button'>
-          <FormattedMessage
-            id='home.actions.go_to_explore'
-            defaultMessage="See what's trending"
-          />
-        </Link>
-        <Link to='/explore/suggestions' className='button button-tertiary'>
-          <FormattedMessage
-            id='home.actions.go_to_suggestions'
-            defaultMessage='Find people to follow'
-          />
-        </Link>
-      </div>
-    </div>
   </DismissableBanner>
 );
