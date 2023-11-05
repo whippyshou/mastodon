@@ -58,7 +58,7 @@ const initialState = ImmutableMap({
     quickFilter: ImmutableMap({
       active: 'all',
       show: true,
-      advanced: false,
+      advanced: true,
     }),
 
     dismissPermissionBanner: false,

@@ -670,3 +670,11 @@ html {
     background-color: rgba($ui-highlight-color, 0.15);
   }
 }
+
+img.logo--wordmark {
+  content: url("../images/logos/wordmark_light.png");
+}
+
+img.logo--icon {
+  content: url("../images/logos/logo_light.png");
+}

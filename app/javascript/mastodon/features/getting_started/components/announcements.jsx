@@ -12,7 +12,7 @@ import TransitionMotion from 'react-motion/lib/TransitionMotion';
 import spring from 'react-motion/lib/spring';
 import ReactSwipeableViews from 'react-swipeable-views';
 
-import elephantUIPlane from 'mastodon/../images/elephant_ui_plane.svg';
+import rabbitUIPlain from 'mastodon/../images/rabbit_ui_announce.png'
 import { AnimatedNumber } from 'mastodon/components/animated_number';
 import { Icon }  from 'mastodon/components/icon';
 import { IconButton } from 'mastodon/components/icon_button';
@@ -420,7 +420,7 @@ class Announcements extends ImmutablePureComponent {
 
     return (
       <div className='announcements'>
-        <img className='announcements__mastodon' alt='' draggable='false' src={mascot || elephantUIPlane} />
+        <img className='announcements__mastodon' alt='' draggable='false' src={mascot || rabbitUIPlain} />
 
         <div className='announcements__container'>
           <ReactSwipeableViews animateHeight animateTransitions={!reduceMotion} index={index} onChangeIndex={this.handleChangeIndex}>

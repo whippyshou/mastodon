@@ -76,16 +76,15 @@ $content-width: 840px;
 
     .logo {
       display: block;
-      margin: 40px auto;
-      width: 100px;
-      height: 100px;
+      margin: auto;
+      height: 200px;
     }
 
     .logo--wordmark {
       display: inherit;
       margin: inherit;
       width: inherit;
-      height: 25px;
+      height: 100px;
     }
 
     @media screen and (max-width: $no-columns-breakpoint) {
