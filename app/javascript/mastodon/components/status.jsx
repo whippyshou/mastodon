@@ -249,6 +249,14 @@ class Status extends ImmutablePureComponent {
     }
   };
 
+  
+  handleStatusClick = (e) => {
+    if (e.button === 0 && !(e.ctrlKey || e.metaKey) && this.context.router) {
+      e.preventDefault();
+      this.context.router.history.push(`/@${this.props.status.getIn(['account', 'acct'])}`+`/${this.props.status.get('id')}`)
+    }
+    e.stopPropagation();
+  };
   handleDeployPictureInPicture = (type, mediaProps) => {
     const { deployPictureInPicture } = this.props;
     const status = this._properStatus();
@@ -392,7 +400,7 @@ class Status extends ImmutablePureComponent {
       };
 
       return (
-        <HotKeys handlers={minHandlers}>
+        <HotKeys handlers={minHandlers} >
           <div className='status__wrapper status__wrapper--filtered focusable' tabIndex={0} ref={this.handleRef}>
             <FormattedMessage id='status.filtered' defaultMessage='Filtered' />: {matchedFilters.join(', ')}.
             {' '}
@@ -550,7 +558,7 @@ class Status extends ImmutablePureComponent {
 
     return (
       <HotKeys handlers={handlers}>
-        <div className={classNames('status__wrapper', `status__wrapper-${status.get('visibility')}`, { 'status__wrapper-reply': !!status.get('in_reply_to_id'), unread, focusable: !this.props.muted })} tabIndex={this.props.muted ? null : 0} data-featured={featured ? 'true' : null} aria-label={textForScreenReader(intl, status, rebloggedByText)} ref={this.handleRef} data-nosnippet={status.getIn(['account', 'noindex'], true) || undefined}>
+        <div  onClick={this.handleStatusClick}  className={classNames('status__wrapper', `status__wrapper-${status.get('visibility')}`, { 'status__wrapper-reply': !!status.get('in_reply_to_id'), unread, focusable: !this.props.muted })} tabIndex={this.props.muted ? null : 0} data-featured={featured ? 'true' : null} aria-label={textForScreenReader(intl, status, rebloggedByText)} ref={this.handleRef} data-nosnippet={status.getIn(['account', 'noindex'], true) || undefined}>
           {prepend}
 
           <div className={classNames('status', `status-${status.get('visibility')}`, { 'status-reply': !!status.get('in_reply_to_id'), 'status--in-thread': !!rootId, 'status--first-in-thread': previousId && (!connectUp || connectToRoot), muted: this.props.muted })} data-id={status.get('id')}>

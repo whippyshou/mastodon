@@ -112,9 +112,15 @@ class Poll extends ImmutablePureComponent {
       e.stopPropagation();
       e.preventDefault();
     }
+
   };
 
-  handleVote = () => {
+  handleStopProp = (e) =>{
+    e.stopPropagation();
+  }
+
+  handleVote = (e) => {
+    e.stopPropagation();
     if (this.props.disabled) {
       return;
     }
@@ -122,15 +128,17 @@ class Poll extends ImmutablePureComponent {
     this.props.onVote(Object.keys(this.state.selected));
   };
 
-  handleRefresh = () => {
+  handleRefresh = (e) => {
+    e.stopPropagation();
     if (this.props.disabled) {
       return;
     }
 
-    this.props.refresh();
+    this.props.refresh(e);
   };
 
-  handleReveal = () => {
+  handleReveal = (e) => {
+    e.stopPropagation();
     this.setState({ revealed: true });
   }
 
@@ -228,8 +236,8 @@ class Poll extends ImmutablePureComponent {
     }
 
     return (
-      <div className='poll'>
-        <ul>
+      <div className='poll' onClick={this.handleStopProp}>
+        <ul >
           {poll.get('options').map((option, i) => this.renderOption(option, i, showResults))}
         </ul>
 

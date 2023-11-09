@@ -352,6 +352,9 @@ class Status extends ImmutablePureComponent {
     }
   };
 
+
+
+
   handleEditClick = (status, history) => {
     this.props.dispatch(editStatus(status.get('id'), history));
   };

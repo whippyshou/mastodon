@@ -68,6 +68,10 @@ class DetailedStatus extends ImmutablePureComponent {
     e.stopPropagation();
   };
 
+
+
+
+
   handleOpenVideo = (options) => {
     this.props.onOpenVideo(this.props.status.getIn(['media_attachments', 0]), options);
   };
@@ -296,7 +300,7 @@ class DetailedStatus extends ImmutablePureComponent {
     const expanded = !status.get('hidden') || status.get('spoiler_text').length === 0;
 
     return (
-      <div style={outerStyle}>
+      <div style={outerStyle} >
         <div ref={this.setRef} className={classNames('detailed-status', { compact })}>
           {status.get('visibility') === 'direct' && (
             <div className='status__prepend'>

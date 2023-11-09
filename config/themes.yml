@@ -1,9 +1,9 @@
 # default: styles/mastodon-bird-ui-dark.scss
-default: styles/application.scss
-# mastodon-bird-ui-light: styles/mastodon-bird-ui-light.scss
-# bird-ui-light: styles/bird-ui-light.scss
-# bird-ui-dark: styles/bird-ui-dark.scss
-# # mastodon-dark: styles/application.scss
+default: styles/theme-ui-dark.scss
+theme-ui-light : styles/theme-ui-light.scss
+bird-ui-light: styles/bird-ui-light.scss
+bird-ui-dark: styles/bird-ui-dark.scss
+mastodon-dark: styles/application.scss
 mastodon-light: styles/mastodon-light.scss
 contrast: styles/contrast.scss
 

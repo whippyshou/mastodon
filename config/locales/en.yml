@@ -1733,11 +1733,11 @@ en:
   themes:
      contrast: Mastodon (High contrast)
      default: Mastodon Bird UI (Dark)
-     mastodon-bird-ui-light: Mastodon Bird UI (Light)
+     bird-ui-light: Mastodon Bird UI (Light)
+     bird-ui-dark: Mastodon Bird UI (dark)
      mastodon-light: Mastodon (Light)
      mastodon-dark: Mastodon (Dark)
-     mastodon-bird-ui-light-vanilla: Mastodon Bird UI - vanila (Light)
-     mastodon-bird-ui-dark-vanilla: Mastodon Bird UI - vanila (dark)
+     theme-ui-light: Mastodon Bird UI - vanila (dark)
   time:
     formats:
       default: "%b %d, %Y, %H:%M"

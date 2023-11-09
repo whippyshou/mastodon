@@ -217,7 +217,7 @@ class StatusContent extends PureComponent {
 
   handleSpoilerClick = (e) => {
     e.preventDefault();
-
+    e.stopPropagation();
     if (this.props.onExpandedToggle) {
       // The parent manages the state
       this.props.onExpandedToggle();

@@ -193,12 +193,13 @@ export default class Dropdown extends PureComponent {
     id: id++,
   };
 
-  handleClick = ({ type }) => {
+  handleClick = (e) => {
     if (this.state.id === this.props.openDropdownId) {
       this.handleClose();
     } else {
-      this.props.onOpen(this.state.id, this.handleItemClick, type !== 'click');
+      this.props.onOpen(this.state.id, this.handleItemClick, e.type !== 'click');
     }
+    e.stopPropagation();
   };
 
   handleClose = () => {

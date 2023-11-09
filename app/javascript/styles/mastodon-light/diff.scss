@@ -678,3 +678,11 @@ img.logo--wordmark {
 img.logo--icon {
   content: url("../images/logos/logo_light.png");
 }
+
+
+@media screen and (max-width: $no-gap-breakpoint - 1px) {
+  .ui__header__logo img.logo {
+    content: url("../images/logos/m_logo_light.png");
+  }
+}
+

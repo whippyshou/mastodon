@@ -623,7 +623,7 @@
   "server_banner.about_active_users": "30일 동안 이 서버를 사용한 사람들 (월간 활성 이용자)",
   "server_banner.active_users": "활성 사용자",
   "server_banner.administered_by": "관리자:",
-  "server_banner.introduction": "{title}은 {WhippyEdition}으로 운영되는 마스토돈 인스턴스입니다. {WhippyEdition}은 오리지널 캐릭터의 교류를 목적으로 하는 커뮤니티를 위해 제공되고 있습니다.",
+  "server_banner.introduction": "{title}은(는) {WhippyEdition}으로 운영되는 마스토돈 인스턴스입니다. {WhippyEdition}은 오리지널 캐릭터의 교류를 목적으로 하는 커뮤니티를 위해 제공되고 있습니다.",
   "server_banner.learn_more": "더 알아보기",
   "server_banner.server_stats": "서버 통계:",
   "sign_in_banner.create_account": "계정 생성",

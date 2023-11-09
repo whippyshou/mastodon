@@ -1,7 +1,7 @@
 ---
 ko:
   about:
-    about_mastodon_html: '미래의 소셜 네트워크: 광고 없음, 기업 감시 없음, 윤리적 설계, 탈중앙화! 여러분만의 데이터를 Mastodon으로 소유하세요!'
+    about_mastodon_html: '휘핑 에디션 :: 오리지널 캐릭터의 교류를 목적으로 하는 커뮤니티를 위해 제공되는 마스토돈 에디션.'
     contact_missing: 미설정
     contact_unavailable: 없음
     hosted_on: "%{domain}에서 호스팅 되는 마스토돈"
@@ -1701,12 +1701,12 @@ ko:
     does_not_match_previous_name: 이전 이름과 맞지 않습니다
   themes:
     contrast: 마스토돈 (고대비)
-    default: 휘핑 에디션 테마 (어두움)
-    mastodon-bird-ui-light: 휘핑 에디션 테마 (밝음)
+    default: 휘핑 에디션 커스텀 테마 (어두움)
+    theme-ui-light: 휘핑 에디션 커스텀 테마 (밝음)
     mastodon-light: 마스토돈 (밝음)
     mastodon-dark: 마스토돈 (어두움)
-    mastodon-bird-ui-light-vanilla: 파란새풍 테마 (밝음)
-    mastodon-bird-ui-dark-vanilla: 파란새풍 테마 (어두움)
+    bird-ui-light: 파란새풍 테마 (밝음)
+    bird-ui-dark: 파란새풍 테마 (어두움)
   time:
     formats:
       default: "%Y-%m-%d %H:%M"

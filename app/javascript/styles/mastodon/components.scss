@@ -1040,7 +1040,7 @@ body > [data-popper-placement] {
   padding: 16px;
   min-height: 54px;
   border-bottom: 1px solid lighten($ui-base-color, 8%);
-  cursor: auto;
+  cursor: pointer;
 
   @keyframes fade {
     0% {
@@ -1059,6 +1059,7 @@ body > [data-popper-placement] {
   .video-player,
   .audio-player,
   .attachment-list {
+    max-height: 500px;
     margin-top: 16px;
   }
 
@@ -1340,6 +1341,7 @@ body > [data-popper-placement] {
   .media-gallery,
   .video-player,
   .audio-player {
+    max-height:unset;
     margin-top: 16px;
   }
 
@@ -1657,6 +1659,7 @@ a.account__display-name {
   line-height: 22px;
   margin-bottom: 16px;
   overflow: hidden;
+  width: fit-content;
 
   strong,
   span {
@@ -2487,7 +2490,14 @@ $ui-header-height: 55px;
   .error-column {
     border-radius: 0 !important;
   }
+
+  .ui__header__logo img.logo {
+    content: url("../images/logos/m_logo_dark.png");
+  }
+
 }
+
+
 
 @media screen and (max-width: $no-gap-breakpoint - 285px - 1px) {
   $sidebar-width: 55px;
@@ -2966,7 +2976,7 @@ $ui-header-height: 55px;
   }
 
   .logo {
-    height: 100px;
+    height: 85px;
     width: auto;
   }
 }
@@ -6311,7 +6321,6 @@ a.status-card {
   box-sizing: border-box;
   display: block;
   position: relative;
-  border-radius: 8px;
   overflow: hidden;
 
   &--tall {

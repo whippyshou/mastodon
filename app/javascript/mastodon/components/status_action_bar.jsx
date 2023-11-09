@@ -102,7 +102,24 @@ class StatusActionBar extends ImmutablePureComponent {
     'withDismiss',
   ];
 
-  handleReplyClick = () => {
+
+  // handleReplyClick = () => {
+
+  //   if (e.button === 0 && !(e.ctrlKey || e.metaKey) && this.context.router) {
+  //     e.preventDefault();
+  //     const { signedIn } = this.context.identity;
+
+  //     if (signedIn) {
+  //       this.props.onReply(this.props.status, this.context.router.history);
+  //     } else {
+  //       this.props.onInteractionModal('reply', this.props.status);
+  //     }
+  //   }
+  //   e.stopPropagation()
+
+  // };
+
+  handleReplyClick = e => {
     const { signedIn } = this.context.identity;
 
     if (signedIn) {
@@ -110,6 +127,7 @@ class StatusActionBar extends ImmutablePureComponent {
     } else {
       this.props.onInteractionModal('reply', this.props.status);
     }
+    e.stopPropagation();
   };
 
   handleShareClick = () => {
@@ -120,7 +138,7 @@ class StatusActionBar extends ImmutablePureComponent {
     });
   };
 
-  handleFavouriteClick = () => {
+  handleFavouriteClick = e => {
     const { signedIn } = this.context.identity;
 
     if (signedIn) {
@@ -128,6 +146,7 @@ class StatusActionBar extends ImmutablePureComponent {
     } else {
       this.props.onInteractionModal('favourite', this.props.status);
     }
+    e.stopPropagation();
   };
 
   handleReblogClick = e => {
@@ -138,10 +157,12 @@ class StatusActionBar extends ImmutablePureComponent {
     } else {
       this.props.onInteractionModal('reblog', this.props.status);
     }
+    e.stopPropagation();
   };
 
-  handleBookmarkClick = () => {
+  handleBookmarkClick = e => {
     this.props.onBookmark(this.props.status);
+    e.stopPropagation();
   };
 
   handleDeleteClick = () => {
@@ -231,6 +252,11 @@ class StatusActionBar extends ImmutablePureComponent {
 
   handleHideClick = () => {
     this.props.onFilter();
+  };
+
+  handleActionbarClick = (e) => {
+    console.log("dd")
+    e.stopPropagation();
   };
 
   render () {
