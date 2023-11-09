@@ -247,7 +247,9 @@ body.theme-bird-ui-light.layout-single-column {
   --color-dark: #f7f9f9;
   --color-thread-line: #e1e8ed;
   --color-topaz: #8899a6;
-  --color-light-purple: #9588a6;
+
+  --color-light-purple: #df98a2;
+  
   --color-dark-electric-blue: #9088a6;
   --color-bg-75: #ffffffbf;
   --color-accent: var(--color-accent-dark);
@@ -417,6 +419,10 @@ body.layout-single-column {
 // .layout-single-column .ui__header__logo svg {
 //   display: none;
 // }
+
+.layout-single-column .column-link:focus-visible {
+  border-color:var(--color-accent-dark)
+}
 
 /* Things that should have the default font-size */
 .layout-single-column .notification__message,

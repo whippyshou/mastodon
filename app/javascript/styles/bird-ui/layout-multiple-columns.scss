@@ -225,7 +225,9 @@ body.theme-bird-ui-light.layout-multiple-columns {
   --color-dark: #f7f9f9;
   --color-thread-line: #e1e8ed;
   --color-gainsboro: #8899a6;
-  --color-light-purple: #9588a6;
+
+  --color-light-purple: #df98a2;
+  
   --color-dark-electric-blue: #9088a6;
   --color-bg-75: #ffffffbf;
   --color-accent: var(--color-accent-dark);
@@ -1386,6 +1388,9 @@ body.embed .detailed-status,
   background-color: var(--color-light-shade);
 }
 
+.layout-multiple-columns .column-link:focus-visible {
+  border-color:var(--color-accent-dark)
+}
 
 // /* Toot hover effect */
 // .layout-multiple-columns article:focus,

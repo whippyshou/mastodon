@@ -66,13 +66,14 @@ class PostStatusService < BaseService
     @text         = @options.delete(:spoiler_text) if @text.blank? && @options[:spoiler_text].present?
     @visibility   = @options[:visibility] || @account.user&.setting_default_privacy
     @visibility   = :unlisted if @visibility&.to_sym == :public && @account.silenced?
+    @visibility   = :unlisted if @visibility&.to_sym == :public
     @scheduled_at = @options[:scheduled_at]&.to_datetime
     @scheduled_at = nil if scheduled_in_the_past?
   rescue ArgumentError
     raise ActiveRecord::RecordInvalid
   end
 
-  def process_status!
+  def process_status! 
     @status = @account.statuses.new(status_attributes)
     process_mentions_service.call(@status, save_records: false)
     safeguard_mentions!(@status)

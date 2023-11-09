@@ -36,9 +36,9 @@
   --color-fg: #fff;
   --color-border: #38384d;
   --color-dim: var(--color-brand-mastodon-dim);
+
   --color-accent:  #81c5cf;
   --color-accent-dark: #27a4b8;
-
   --color-accent-dark-50: #27a4b880;
 
   --color-green: #00ba7c;
@@ -57,7 +57,9 @@
   --color-dark: var(--color-brand-mastodon-dark);
   --color-thread-line: var(--color-brand-mastodon-threaded-line);
   --color-topaz: #dadaf3;
-  --color-light-purple: #9baec8;
+
+  --color-light-purple: #df98a2;
+
   --color-lighter-purple: #a5b8d3;
   --color-dark-electric-blue: #576078;
   --color-button-text: #f7f9f9;
@@ -259,7 +261,9 @@ body.theme-theme-ui-light.layout-single-column {
   --color-dark: #f7f9f9;
   --color-thread-line: #e1e8ed;
   --color-topaz: #8899a6;
-  --color-light-purple: #9588a6;
+  
+  --color-light-purple: #df98a2;
+  
   --color-dark-electric-blue: #9088a6;
   --color-bg-75: #ffffffbf;
   --color-accent: var(--color-accent-dark);
@@ -890,6 +894,10 @@ body.layout-single-column {
     padding-left: 0 !important;
     padding-right: 10px;
   }
+}
+
+.layout-single-column .column-link:focus-visible {
+  border-color:var(--color-accent-dark)
 }
 
 .layout-single-column .emoji-mart-anchor-bar,
