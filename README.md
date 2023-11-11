@@ -1,4 +1,6 @@
 <h1><picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./lib/assets/wordmark.dark.png?raw=true">
+  <source media="(prefers-color-scheme: light)" srcset="./lib/assets/wordmark.light.png?raw=true">
   <img alt="Whippy Edition" src="./lib/assets/wordmark.light.png" height="100">
 </picture></h1>
 
@@ -9,7 +11,7 @@
 
 **휘핑 에디션**은 **오리지널 캐릭터의 교류**를 목적으로 하는 **커뮤니티**를 위해 제공되는 오픈소스 네트워크 미디어 소프트웨어입니다. 휘핑 에디션은 Mastodon gGmbH에서 제공하는 오픈소스 소프트웨어인 Mastodon에서 파생되었으며 자유로운 수정 및 복제, 사용이 가능합니다. 
 
- <img alt="Whippy Edition" src="./lib/assets/preview.png">
+<picture><img alt="Whippy Edition" src="./lib/assets/preview.png"></picture>
 
 ## Navigation
 
