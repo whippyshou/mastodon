@@ -19,7 +19,7 @@
 - [CAFE : WHIPPY CREAM <img alt="Whippy Edition" src="./lib/assets/Postype_Symbol-1.svg?raw=true" height="20"> ][postype]
 - [Mastodon with modern birdsite-like UI 🐦](https://github.com/ronilaukkarinen/mastodon-bird-ui/)
 
-[postype]:https://www.postype.com/15635470
+[postype]:https://posty.pe/1no6yj
 
 위의 링크에서 **휘핑 에디션**에 대한 좀 더 자세한 내용을 확인하실 수 있습니다. 
 
