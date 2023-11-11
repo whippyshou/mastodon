@@ -9,7 +9,7 @@ class Api::V1::Statuses::PinsController < Api::BaseController
 
   def create
     StatusPin.create!(account: current_account, status: @status)
-    distribute_add_activity!
+    #distribute_add_activity!
     render json: @status, serializer: REST::StatusSerializer
   end
 
@@ -18,7 +18,7 @@ class Api::V1::Statuses::PinsController < Api::BaseController
 
     if pin
       pin.destroy!
-      distribute_remove_activity!
+      #distribute_remove_activity!
     end
 
     render json: @status, serializer: REST::StatusSerializer

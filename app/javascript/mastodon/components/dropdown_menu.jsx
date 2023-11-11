@@ -111,6 +111,7 @@ class DropdownMenu extends PureComponent {
   };
 
   handleClick = e => {
+    e.stopPropagation();
     const { onItemClick } = this.props;
     onItemClick(e);
   };

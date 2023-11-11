@@ -10,7 +10,9 @@
   overflow: hidden;
   position: relative;
 }
-
+.batch-table__row .media-gallery{
+  max-height: 500px;
+}
 .inline-alert {
   color: $valid-value-color;
   font-weight: 400;

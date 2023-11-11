@@ -85,7 +85,8 @@ export default class Card extends PureComponent {
     window.removeEventListener('resize', this.handleResize);
   }
 
-  handleEmbedClick = () => {
+  handleEmbedClick = e => {
+    e.stopPropagation();
     this.setState({ embedded: true });
   };
 

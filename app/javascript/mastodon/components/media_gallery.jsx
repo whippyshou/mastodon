@@ -251,12 +251,13 @@ class MediaGallery extends PureComponent {
     trailing: true,
   });
 
-  handleOpen = () => {
+  handleOpen = e => {
     if (this.props.onToggleVisibility) {
       this.props.onToggleVisibility();
     } else {
       this.setState({ visible: !this.state.visible });
     }
+    e.stopPropagation();
   };
 
   handleClick = (index) => {

@@ -177,7 +177,7 @@ class HomeTimeline extends PureComponent {
             scrollKey={`home_timeline-${columnId}`}
             onLoadMore={this.handleLoadMore}
             timelineId='home'
-            emptyMessage={<FormattedMessage id='empty_column.home' defaultMessage='Your home timeline is empty! Follow more people to fill it up.' />}
+            emptyMessage={<FormattedMessage id='empty_column.local' defaultMessage='Your home timeline is empty! Follow more people to fill it up.' />}
             bindToDocument={!multiColumn}
           />
         ) : <NotSignedInIndicator />}

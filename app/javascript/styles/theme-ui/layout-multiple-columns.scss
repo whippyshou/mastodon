@@ -204,8 +204,10 @@ body.theme-theme-ui-contrast.layout-multiple-columns {
 }
 
 /* Light theme */
-body.theme-theme-ui-light.layout-multiple-columns {
-  
+body.theme-default.layout-multiple-columns {
+
+  --active-header-radial-gradient: radial-gradient(ellipse,rgb(239, 154, 154 / 25%) 0,rgb(255, 0 ,81 / 0%) 60%);
+
   --bg-image : url('../images/theme/bg_light.png');
   --logo: url('../images/theme/wordmark_light.png');
   --m-logo: url('../images/theme/m_logo_light.png');
@@ -231,11 +233,15 @@ body.theme-theme-ui-light.layout-multiple-columns {
   --color-red: #e0245e;
   --color-red-75: #e0245ebf;
   --color-focusable-toot: rgba(0, 0, 0, 0.035);
+
   --color-light-shade: #db9e9e12;
-  --color-mud: #f8e8ec;
+  --color-mud: #f0dee2;
+
   --color-black-coral: #9188a6;
-  --color-profile-button-hover: #1e1b231a;
-  --color-column-link-hover: #1e1b231a;
+
+  --color-profile-button-hover: #db9e9e40;
+  --color-column-link-hover: #db9e9e40;
+  
   --color-modal-overlay: #6a5b8366;
   --color-dark: #f7f9f9;
   --color-thread-line: #e1e8ed;
@@ -4837,3 +4843,9 @@ div[tabindex="-1"] + div[tabindex="-1"] > .status__wrapper > .status-reply.statu
  * Star animation micro-interactions end
  * -------------------------------------
  */
+ .layout-single-column .picture-in-picture .video-player,
+ .layout-single-column .picture-in-picture .audio-player
+ {
+     border-radius: unset;
+ }
+ 

@@ -158,6 +158,22 @@ class Audio extends PureComponent {
     }
   }
 
+
+  toggleClickPlay = e => {
+
+    e.stopPropagation();
+
+    if (!this.audioContext) {
+      this._initAudioContext();
+    }
+
+    if (this.state.paused) {
+      this.setState({ paused: false }, () => this.audio.play());
+    } else {
+      this.setState({ paused: true }, () => this.audio.pause());
+    }
+  };
+
   togglePlay = () => {
     if (!this.audioContext) {
       this._initAudioContext();
@@ -204,7 +220,11 @@ class Audio extends PureComponent {
     }
   };
 
-  toggleMute = () => {
+  toggleMute = e => {
+
+    e.stopPropagation();
+
+
     const muted = !(this.state.muted || this.state.volume === 0);
 
     this.setState((state) => ({ muted, volume: Math.max(state.volume || 0.5, 0.05) }), () => {
@@ -214,12 +234,18 @@ class Audio extends PureComponent {
     });
   };
 
-  toggleReveal = () => {
+  toggleReveal = e => {
+    e.stopPropagation();
+
     if (this.props.onToggleVisibility) {
       this.props.onToggleVisibility();
     } else {
       this.setState({ revealed: !this.state.revealed });
     }
+  };
+
+  handleStopEvent = e => {
+    e.stopPropagation();
   };
 
   handleVolumeMouseDown = e => {
@@ -234,11 +260,12 @@ class Audio extends PureComponent {
     e.stopPropagation();
   };
 
-  handleVolumeMouseUp = () => {
+  handleVolumeMouseUp = e=> {
     document.removeEventListener('mousemove', this.handleMouseVolSlide, true);
     document.removeEventListener('mouseup', this.handleVolumeMouseUp, true);
     document.removeEventListener('touchmove', this.handleMouseVolSlide, true);
     document.removeEventListener('touchend', this.handleVolumeMouseUp, true);
+
   };
 
   handleMouseDown = e => {
@@ -255,7 +282,7 @@ class Audio extends PureComponent {
     e.stopPropagation();
   };
 
-  handleMouseUp = () => {
+  handleMouseUp = e => {
     document.removeEventListener('mousemove', this.handleMouseMove, true);
     document.removeEventListener('mouseup', this.handleMouseUp, true);
     document.removeEventListener('touchmove', this.handleMouseMove, true);
@@ -314,12 +341,16 @@ class Audio extends PureComponent {
     }
   }, 150, { trailing: true });
 
-  handleMouseEnter = () => {
+  handleMouseEnter = e => {
     this.setState({ hovered: true });
+    e.stopPropagation();
+
   };
 
-  handleMouseLeave = () => {
+  handleMouseLeave = e => {
     this.setState({ hovered: false });
+    e.stopPropagation();
+
   };
 
   handleLoadedData = () => {
@@ -432,6 +463,8 @@ class Audio extends PureComponent {
     // On the audio element or the seek bar, we can safely use the space bar
     // for playback control because there are no buttons to press
 
+    e.stopPropagation();
+
     if (e.key === ' ') {
       e.preventDefault();
       e.stopPropagation();
@@ -506,9 +539,9 @@ class Audio extends PureComponent {
           className='audio-player__canvas'
           width={this.state.width}
           height={this.state.height}
-          style={{ width: '100%', position: 'absolute', top: 0, left: 0 }}
+          style={{ width: '100%', position: 'absolute', top: 0, left: 0, cursor:'pointer'}}
           ref={this.setCanvasRef}
-          onClick={this.togglePlay}
+          onClick={this.toggleClickPlay}
           onKeyDown={this.handleAudioKeyDown}
           title={alt}
           aria-label={alt}
@@ -539,7 +572,7 @@ class Audio extends PureComponent {
           }}
         />}
 
-        <div className='video-player__seek' onMouseDown={this.handleMouseDown} ref={this.setSeekRef}>
+        <div className='video-player__seek' onMouseDown={this.handleMouseDown} ref={this.setSeekRef}  onClick = {this.handleStopEvent}> 
           <div className='video-player__seek__buffer' style={{ width: `${buffer}%` }} />
           <div className='video-player__seek__progress' style={{ width: `${progress}%`, backgroundColor: this._getAccentColor() }} />
 
@@ -552,12 +585,12 @@ class Audio extends PureComponent {
         </div>
 
         <div className='video-player__controls active'>
-          <div className='video-player__buttons-bar'>
+          <div className='video-player__buttons-bar' onClick = {this.handleStopEvent} >
             <div className='video-player__buttons left'>
-              <button type='button' title={intl.formatMessage(paused ? messages.play : messages.pause)} aria-label={intl.formatMessage(paused ? messages.play : messages.pause)} className='player-button' onClick={this.togglePlay}><Icon id={paused ? 'play' : 'pause'} fixedWidth /></button>
+              <button type='button' title={intl.formatMessage(paused ? messages.play : messages.pause)} aria-label={intl.formatMessage(paused ? messages.play : messages.pause)} className='player-button' onClick={this.toggleClickPlay}><Icon id={paused ? 'play' : 'pause'} fixedWidth /></button>
               <button type='button' title={intl.formatMessage(muted ? messages.unmute : messages.mute)} aria-label={intl.formatMessage(muted ? messages.unmute : messages.mute)} className='player-button' onClick={this.toggleMute}><Icon id={muted ? 'volume-off' : 'volume-up'} fixedWidth /></button>
 
-              <div className={classNames('video-player__volume', { active: this.state.hovered })} ref={this.setVolumeRef} onMouseDown={this.handleVolumeMouseDown}>
+              <div className={classNames('video-player__volume', { active: this.state.hovered })} ref={this.setVolumeRef} onClick = {this.handleStopEvent} onMouseDown={this.handleVolumeMouseDown}>
                 <div className='video-player__volume__current' style={{ width: `${muted ? 0 : volume * 100}%`, backgroundColor: this._getAccentColor() }} />
 
                 <span

@@ -640,6 +640,8 @@ class Status extends ImmutablePureComponent {
     let ancestors, descendants;
     const { isLoading, status, ancestorsIds, descendantsIds, intl, domain, multiColumn, pictureInPicture } = this.props;
     const { fullscreen } = this.state;
+    const { signedIn } = this.context.identity;
+
 
     if (isLoading) {
       return (
@@ -649,7 +651,7 @@ class Status extends ImmutablePureComponent {
       );
     }
 
-    if (status === null) {
+    if (status === null || !signedIn ) {
       return (
         <BundleColumnError multiColumn={multiColumn} errorType='routing' />
       );

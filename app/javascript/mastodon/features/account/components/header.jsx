@@ -434,6 +434,8 @@ class Header extends ImmutablePureComponent {
 
           {!(suspended || hidden) && (
             <div className='account__header__extra'>
+
+              {(signedIn) &&(
               <div className='account__header__bio' ref={this.setRef}>
                 {(account.get('id') !== me && signedIn) && <AccountNoteContainer account={account} />}
 
@@ -441,8 +443,8 @@ class Header extends ImmutablePureComponent {
 
                 <div className='account__header__fields'>
                   <dl>
-                    <dt><FormattedMessage id='account.joined_short' defaultMessage='Joined' /></dt>
-                    <dd>{intl.formatDate(account.get('created_at'), { year: 'numeric', month: 'short', day: '2-digit' })}</dd>
+                    {/* <dt><FormattedMessage id='account.joined_short' defaultMessage='Joined' /></dt>
+                    <dd>{intl.formatDate(account.get('created_at'), { year: 'numeric', month: 'short', day: '2-digit' })}</dd> */}
                   </dl>
 
                   {fields.map((pair, i) => (
@@ -456,6 +458,8 @@ class Header extends ImmutablePureComponent {
                   ))}
                 </div>
               </div>
+              )
+              }
 
               <div className='account__header__extra__links'>
                 <NavLink isActive={this.isStatusesPageActive} activeClassName='active' to={`/@${account.get('acct')}`} title={intl.formatNumber(account.get('statuses_count'))}>

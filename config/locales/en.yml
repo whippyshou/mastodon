@@ -1737,7 +1737,7 @@ en:
      bird-ui-dark: Mastodon Bird UI (dark)
      mastodon-light: Mastodon (Light)
      mastodon-dark: Mastodon (Dark)
-     theme-ui-light: Mastodon Bird UI - vanila (dark)
+     theme-ui-dark: Mastodon Bird UI - vanila (dark)
   time:
     formats:
       default: "%b %d, %Y, %H:%M"

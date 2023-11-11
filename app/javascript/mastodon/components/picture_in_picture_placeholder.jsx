@@ -15,9 +15,10 @@ class PictureInPicturePlaceholder extends PureComponent {
     aspectRatio: PropTypes.string,
   };
 
-  handleClick = () => {
+  handleClick = e => {
     const { dispatch } = this.props;
     dispatch(removePictureInPicture());
+    e.stopPropagation();
   };
 
   render () {
