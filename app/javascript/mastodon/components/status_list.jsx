@@ -9,6 +9,8 @@ import RegenerationIndicator from 'mastodon/components/regeneration_indicator';
 
 import StatusContainer from '../containers/status_container';
 import StatusContainerWithoutDm from '../containers/status_container_without_dm';
+import StatusContainerWithDm from '../containers/status_container_with_dm';
+
 
 import { LoadGap } from './load_gap';
 import ScrollableList from './scrollable_list';
@@ -65,7 +67,7 @@ export default class StatusList extends ImmutablePureComponent {
     onLoadMore(lastId || (statusIds.size > 0 ? statusIds.last() : undefined));
   }, 300, { leading: true });
 
-  _selectChild (index, align_top) {
+  _selectChild(index, align_top) {
     const container = this.node.node;
     const element = container.querySelector(`article:nth-of-type(${index + 1}) .focusable`);
 
@@ -83,8 +85,8 @@ export default class StatusList extends ImmutablePureComponent {
     this.node = c;
   };
 
-  render () {
-    const { statusIds, featuredStatusIds, onLoadMore, timelineId, ...other }  = this.props;
+  render() {
+    const { statusIds, featuredStatusIds, onLoadMore, timelineId, ...other } = this.props;
     const { isLoading, isPartial } = other;
 
     if (isPartial) {
@@ -100,28 +102,43 @@ export default class StatusList extends ImmutablePureComponent {
           onClick={onLoadMore}
         />
       ) :
-      (timelineId == 'account' ?
-      <StatusContainerWithoutDm
-        key={statusId}
-        id={statusId}
-        onMoveUp={this.handleMoveUp}
-        onMoveDown={this.handleMoveDown}
-        contextType={timelineId}
-        scrollKey={this.props.scrollKey}
-        showThread
-        withCounters={this.props.withCounters}
-      /> 
-      :
-      <StatusContainer
-        key={statusId}
-        id={statusId}
-        onMoveUp={this.handleMoveUp}
-        onMoveDown={this.handleMoveDown}
-        contextType={timelineId}
-        scrollKey={this.props.scrollKey}
-        showThread
-        withCounters={this.props.withCounters}
-      />))
+        (timelineId == 'account' || timelineId == 'account_direct' ?
+          (
+            timelineId == 'account' ?
+              (<StatusContainerWithoutDm
+                key={statusId}
+                id={statusId}
+                onMoveUp={this.handleMoveUp}
+                onMoveDown={this.handleMoveDown}
+                contextType={timelineId}
+                scrollKey={this.props.scrollKey}
+                showThread
+                withCounters={this.props.withCounters}
+              />) :
+
+              (<StatusContainerWithDm
+                key={statusId}
+                id={statusId}
+                onMoveUp={this.handleMoveUp}
+                onMoveDown={this.handleMoveDown}
+                contextType={timelineId}
+                scrollKey={this.props.scrollKey}
+                showThread
+                withCounters={this.props.withCounters}
+              />)
+
+          )
+          :
+          <StatusContainer
+            key={statusId}
+            id={statusId}
+            onMoveUp={this.handleMoveUp}
+            onMoveDown={this.handleMoveDown}
+            contextType={timelineId}
+            scrollKey={this.props.scrollKey}
+            showThread
+            withCounters={this.props.withCounters}
+          />))
     ) : null;
 
     if (scrollableContent && featuredStatusIds) {

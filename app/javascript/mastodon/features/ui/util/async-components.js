@@ -65,6 +65,9 @@ export function SendDirectMessagesStatuses () {
   return import(/* webpackChunkName: "features/pinned_statuses" */'../../direct_messages');
 }
 
+export function AccountDirectMessages () {
+  return import(/* webpackChunkName: "features/pinned_statuses" */'../../account_direct');
+}
 
 export function AccountTimeline () {
   return import(/* webpackChunkName: "features/account_timeline" */'../../account_timeline');

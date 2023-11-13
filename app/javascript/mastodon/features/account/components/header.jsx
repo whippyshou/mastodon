@@ -41,6 +41,8 @@ const messages = defineMessages({
   share: { id: 'account.share', defaultMessage: 'Share @{name}\'s profile' },
   media: { id: 'account.media', defaultMessage: 'Media' },
   blockDomain: { id: 'account.block_domain', defaultMessage: 'Block domain {domain}' },
+  
+  accountDirectMessage: { id: 'account.account_directMessage', defaultMessage: 'Unblock domain {domain}' },
   unblockDomain: { id: 'account.unblock_domain', defaultMessage: 'Unblock domain {domain}' },
   hideReblogs: { id: 'account.hide_reblogs', defaultMessage: 'Hide boosts from @{name}' },
   showReblogs: { id: 'account.show_reblogs', defaultMessage: 'Show boosts from @{name}' },
@@ -288,6 +290,8 @@ class Header extends ImmutablePureComponent {
       menu.push({ text: intl.formatMessage(messages.mention, { name: account.get('username') }), action: this.props.onMention });
       menu.push({ text: intl.formatMessage(messages.direct, { name: account.get('username') }), action: this.props.onDirect });
       menu.push(null);
+      menu.push({ text: intl.formatMessage(messages.accountDirectMessage), to: `/@${account.get('acct')}/direct_messages`});
+      menu.push(null);
     }
 
     if (isRemote) {
@@ -304,8 +308,9 @@ class Header extends ImmutablePureComponent {
       menu.push({ text: intl.formatMessage(messages.preferences), href: '/settings/preferences' });
       menu.push({ text: intl.formatMessage(messages.pins), to: '/pinned' });
       menu.push(null);
-      menu.push({ text: intl.formatMessage(messages.follow_requests), to: '/follow_requests' });
       menu.push({ text: intl.formatMessage(messages.directMessages), to: '/direct_messages' });
+      menu.push(null);
+      menu.push({ text: intl.formatMessage(messages.follow_requests), to: '/follow_requests' });
       menu.push({ text: intl.formatMessage(messages.favourites), to: '/favourites' });
       menu.push({ text: intl.formatMessage(messages.lists), to: '/lists' });
       menu.push({ text: intl.formatMessage(messages.followed_tags), to: '/followed_tags' });
@@ -330,6 +335,7 @@ class Header extends ImmutablePureComponent {
         menu.push({ text: intl.formatMessage(messages.add_or_remove_from_list), action: this.props.onAddToList });
         menu.push(null);
       }
+
 
       if (account.getIn(['relationship', 'muting'])) {
         menu.push({ text: intl.formatMessage(messages.unmute, { name: account.get('username') }), action: this.props.onMute });

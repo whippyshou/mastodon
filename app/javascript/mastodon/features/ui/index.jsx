@@ -43,6 +43,7 @@ import {
   LocalTimeline,
   Followers,
   Following,
+  AccountDirectMessages,
   Reblogs,
   Favourites,
   DirectTimeline,
@@ -58,7 +59,6 @@ import {
   Mutes,
   PinnedStatuses,
   Lists,
-  Directory,
   Explore,
   Onboarding,
   About,
@@ -225,6 +225,9 @@ class SwitchingColumnsArea extends PureComponent {
           <WrappedRoute path={['/@:acct/with_replies', '/accounts/:id/with_replies']} component={AccountTimeline} content={children} componentParams={{ withReplies: true }} />
           <WrappedRoute path={['/accounts/:id/followers', '/users/:acct/followers', '/@:acct/followers']} component={Followers} content={children} />
           <WrappedRoute path={['/accounts/:id/following', '/users/:acct/following', '/@:acct/following']} component={Following} content={children} />
+
+          <WrappedRoute path={['/accounts/:id/direct_messages', '/users/:acct/direct_messages', '/@:acct/direct_messages']} component={AccountDirectMessages} content={children} />
+
           <WrappedRoute path={['/@:acct/media', '/accounts/:id/media']} component={AccountGallery} content={children} />
           <WrappedRoute path='/@:acct/:statusId' exact component={Status} content={children} />
           <WrappedRoute path='/@:acct/:statusId/reblogs' component={Reblogs} content={children} />

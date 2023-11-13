@@ -572,7 +572,7 @@ class Status extends ImmutablePureComponent {
               </a>
 
               <a onClick={this.handleAccountClick} href={`/@${status.getIn(['account', 'acct'])}`} title={status.getIn(['account', 'acct'])} className='status__display-name' target='_blank' rel='noopener noreferrer'>
-                <div className='status__avatar'>
+                <div className='status__avatar' onClick={this.handleAccountClick}>
                   {statusAvatar}
                 </div>
 

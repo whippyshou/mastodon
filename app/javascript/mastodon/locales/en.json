@@ -64,6 +64,7 @@
   "account.statuses_counter": "{count, plural, one {{counter} Post} other {{counter} Posts}}",
   "account.unblock": "Unblock @{name}",
   "account.unblock_domain": "Unblock domain {domain}",
+  "account.account_directMessage": "DM @{name}",
   "account.unblock_short": "Unblock",
   "account.unendorse": "Don't feature on profile",
   "account.unfollow": "Unfollow",

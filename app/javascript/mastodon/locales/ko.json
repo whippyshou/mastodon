@@ -63,6 +63,7 @@
   "account.show_reblogs": "@{name}의 부스트 보기",
   "account.statuses_counter": "{counter} 게시물",
   "account.unblock": "차단 해제",
+  "account.account_directMessage": "@{name}가 보낸 다이렉트 메시지",
   "account.unblock_domain": "도메인 {domain} 차단 해제",
   "account.unblock_short": "차단 해제",
   "account.unendorse": "프로필에 추천하지 않기",
