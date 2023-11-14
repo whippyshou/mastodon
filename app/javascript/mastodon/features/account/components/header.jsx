@@ -290,7 +290,7 @@ class Header extends ImmutablePureComponent {
       menu.push({ text: intl.formatMessage(messages.mention, { name: account.get('username') }), action: this.props.onMention });
       menu.push({ text: intl.formatMessage(messages.direct, { name: account.get('username') }), action: this.props.onDirect });
       menu.push(null);
-      menu.push({ text: intl.formatMessage(messages.accountDirectMessage), to: `/@${account.get('acct')}/direct_messages`});
+      menu.push({ text: intl.formatMessage(messages.accountDirectMessagem, { name: account.get('username') }), to: `/@${account.get('acct')}/direct_messages`});
       menu.push(null);
     }
 
