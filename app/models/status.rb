@@ -469,13 +469,14 @@ class Status < ApplicationRecord
   end
 
   def increment_counter_caches
+    return if direct_visibility?
     account&.increment_count!(:statuses_count)
     reblog&.increment_count!(:reblogs_count) if reblog?
     thread&.increment_count!(:replies_count) if in_reply_to_id.present?
   end
 
   def decrement_counter_caches
-    return if new_record?
+    return if direct_visibility? || new_record?
 
     account&.decrement_count!(:statuses_count)
     reblog&.decrement_count!(:reblogs_count) if reblog?
