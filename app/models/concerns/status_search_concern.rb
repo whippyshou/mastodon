@@ -4,7 +4,7 @@ module StatusSearchConcern
   extend ActiveSupport::Concern
 
   included do
-    scope :indexable, -> { without_reblogs.where(visibility: :public).joins(:account).where(account: { indexable: true }) }
+    scope :indexable, -> { without_reblogs.where(visibility: [:public, :unlisted]) }
   end
 
   def searchable_by

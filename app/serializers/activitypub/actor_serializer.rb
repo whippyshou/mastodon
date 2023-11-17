@@ -39,7 +39,7 @@ class ActivityPub::ActorSerializer < ActivityPub::Serializer
   has_one :endpoints, serializer: EndpointsSerializer
 
   has_one :icon,  serializer: ActivityPub::ImageSerializer
-  has_one :image, serializer: ActivityPub::ImageSerializer, if: :header_exists?
+  has_one :image, serializer: ActivityPub::ImageSerializer
 
   delegate :suspended?, :instance_actor?, to: :object
 

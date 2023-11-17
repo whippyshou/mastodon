@@ -122,6 +122,9 @@ class StatusContent extends PureComponent {
       } else {
         link.setAttribute('title', link.href);
         link.classList.add('unhandled-link');
+        link.addEventListener('click', function(e){
+          e.stopPropagation();
+        }, false);
       }
     }
 
