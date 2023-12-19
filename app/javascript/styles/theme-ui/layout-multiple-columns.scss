@@ -17,8 +17,8 @@
   --color-brand-twitter-mud: #273340;
   --color-brand-twitter-dark: #232543;
   --color-brand-twitter-threaded-line: #425364;
-  --color-brand-mastodon: #27a4b8;
-  --color-brand-mastodon-links: #81c5cf;
+  --color-brand-mastodon: #e9e93c;
+  --color-brand-mastodon-links: #fdfd9b;
   --color-brand-mastodon-bg: #1e2028;
   --color-brand-mastodon-dim: #717c9b;
   --color-brand-mastodon-mud: #272c40;
@@ -35,9 +35,9 @@
   --color-border: #38384d;
   --color-dim: var(--color-brand-mastodon-dim);
 
-  --color-accent:  #81c5cf;
-  --color-accent-dark: #27a4b8;
-  --color-accent-dark-50: #27a4b880;
+  --color-accent:  #fdfd9b;
+  --color-accent-dark: #b5b54b;
+  --color-accent-dark-50: #e9e93c80;
   
   --color-green: #00ba7c;
   --color-red: #f91880;
@@ -215,18 +215,19 @@ body.theme-default.layout-multiple-columns {
   --color-column: rgba(255, 255, 255, 0.4);
   --color-columns: rgba(255, 255, 255, 0.5);
 
-  --color-brand-mastodon: #be2a4d;
-  --color-brand-mastodon-links: #df98a2;
-  --color-accent-dark-50: #be2a4d80;
 
-  --color-accent:#df98a2;
-  --color-accent-dark: #be2a4d;
+  --color-brand-mastodon: #7a853b;
+  --color-brand-mastodon-links: #a8b178;
+  --color-accent-dark-50: #7a853b80;
 
+  --color-accent:#a8b178;
+  --color-accent-dark: #7a853b;
   --color-bg: #fff;
   --color-fg: #000;
 
-  --color-border: #e9dee0;
-  --color-dim: #c16c80;
+
+  --color-border: #fbfcf8;
+  --color-dim: #5f6830;
   --color-light-text: #1f1b23;
 
   --color-green: #17bf63;
@@ -235,7 +236,7 @@ body.theme-default.layout-multiple-columns {
   --color-focusable-toot: rgba(0, 0, 0, 0.035);
 
   --color-light-shade: #db9e9e12;
-  --color-mud: #f0dee2;
+  --color-mud: #dfe2ce;
 
   --color-black-coral: #9188a6;
 
@@ -246,14 +247,14 @@ body.theme-default.layout-multiple-columns {
   --color-dark: #f7f9f9;
   --color-thread-line: #e1e8ed;
   --color-gainsboro: #8899a6;
-  --color-light-purple: #df98a2;
+  --color-light-purple: #c2c5b1;
   --color-dark-electric-blue: #9088a6;
   --color-bg-75: #ffffffbf;
   --color-accent: var(--color-accent-dark);
   --color-ghost-button-text: var(--color-accent-dark);
 
-  --color-bg-compose-form: rgb(192 108 128 / .2);
-  --color-bg-compose-form-focus: rgb(192 108 128/ .4);
+  --color-bg-compose-form: #7a853b20;
+  --color-bg-compose-form-focus: rgba(122, 133, 59, 0.4);
   --color-hashtag: var(--color-accent-dark);
   --color-mention: var(--color-accent-dark);
 

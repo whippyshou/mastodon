@@ -121,7 +121,7 @@ class About extends PureComponent {
           <div className='about__header'>
             <ServerHeroImage blurhash={server.getIn(['thumbnail', 'blurhash'])} src={server.getIn(['thumbnail', 'url'])} srcSet={server.getIn(['thumbnail', 'versions'])?.map((value, key) => `${value} ${key.replace('@', '')}`).join(', ')} className='about__header__hero' />
             <h1>{isLoading ? <Skeleton width='10ch' /> : server.get('title')}</h1>
-            <p><FormattedMessage id='about.powered_by' defaultMessage='Decentralized social media powered by {mastodon}' values={{ WhippyEdition: <a href='https://whippy.postype.com' className='about__mail' target='_blank'>휘핑 에디션</a> }} /></p>
+            <p><FormattedMessage id='' defaultMessage='그 연못 밑바닥에는 가장 오래된 기억이 묻혀 있다.'/></p>
           </div>
 
           <div className='about__meta'>
