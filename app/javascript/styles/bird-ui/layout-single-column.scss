@@ -3014,7 +3014,9 @@ body.embed .button.logo-button:hover,
   .layout-single-column .column-link[href="/local"] {
     order: 5;
   }
-
+  .layout-single-column .column-link[href="/pulic/local"] {
+    order: 5;
+  }
   .layout-single-column .column-link[href='/follow_requests'] {
     order: 8;
   }
