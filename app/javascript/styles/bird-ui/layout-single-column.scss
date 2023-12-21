@@ -239,8 +239,8 @@ body.theme-bird-ui-light.layout-single-column {
   --color-red: #e0245e;
   --color-red-75: #e0245ebf;
 
-  --color-light-shade: #a0db9e12;
 
+  --color-light-shade: #447d5912;
   --color-focusable-toot: rgba(0, 0, 0, 0.035);
   --color-light-text: #1f1b23;
 
@@ -3014,7 +3014,7 @@ body.embed .button.logo-button:hover,
   .layout-single-column .column-link[href="/local"] {
     order: 5;
   }
-  .layout-single-column .column-link[href="/pulic/local"] {
+  .layout-single-column .column-link[href="/public/local"] {
     order: 5;
   }
   .layout-single-column .column-link[href='/follow_requests'] {
