@@ -265,8 +265,8 @@ body.theme-bird-ui-light.layout-single-column {
   --color-accent: var(--color-accent-dark);
   --color-ghost-button-text: var(--color-accent-dark);
 
-  --color-bg-compose-form: rgb(192 108 128 / .2);
-  --color-bg-compose-form-focus: rgb(192 108 128/ .4);
+  --color-bg-compose-form: #5F256C20;
+  --color-bg-compose-form-focus: #5F256C40;
 
   --color-hashtag: var(--color-accent-dark);
   --color-mention: var(--color-accent-dark);
@@ -3016,7 +3016,7 @@ body.embed .button.logo-button:hover,
   .layout-single-column .column-link[href="/local"] {
     order: 5;
   }
-  .layout-single-column .column-link[href="/pulic/local"] {
+  .layout-single-column .column-link[href="/public/local"] {
     order: 5;
   }
   .layout-single-column .column-link[href='/follow_requests'] {
