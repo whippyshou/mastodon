@@ -392,7 +392,7 @@ GEM
       rdf (~> 3.2, >= 3.2.10)
     json-ld-preloaded (3.2.2)
       json-ld (~> 3.2)
-      rdf (~> 3.2)
+      rdf (~> 3.3)
     json-schema (4.0.0)
       addressable (>= 2.8)
     jsonapi-renderer (0.2.2)
