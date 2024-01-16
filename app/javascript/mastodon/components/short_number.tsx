@@ -56,29 +56,21 @@ const ShortNumberCounter: React.FC<ShortNumberCounterProps> = ({ value }) => {
   const values = { count, rawNumber };
 
   switch (unit) {
-    case DECIMAL_UNITS.THOUSAND: {
-      values.rawNumber = values.rawNumber*1000
-      return (
-        <FormattedMessage
-          defaultMessage='{rawNumber}'
-          values={values}
-        />
-      );
-    }
+
     case DECIMAL_UNITS.MILLION: {
-      values.rawNumber = values.rawNumber*10000
       return (
         <FormattedMessage
-          defaultMessage='{rawNumber}'
+          id='units.short.million'
+          defaultMessage='{count}M'
           values={values}
         />
       );
     }
     case DECIMAL_UNITS.BILLION: {
-      values.rawNumber = values.rawNumber*100000
       return (
         <FormattedMessage
-          defaultMessage='{rawNumber}'
+          id='units.short.billion'
+          defaultMessage='{count}B'
           values={values}
         />
       );
