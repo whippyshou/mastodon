@@ -11,13 +11,13 @@
             - if account.suspended? || account.user_pending?
               \-
             - else
-              = friendly_number_to_human account.statuses_count
+              =  account.statuses_count
             %small= t('accounts.posts', count: account.statuses_count).downcase
           %td.accounts-table__count.optional
             - if account.suspended? || account.user_pending?
               \-
             - else
-              = friendly_number_to_human account.followers_count
+              =  account.followers_count
             %small= t('accounts.followers', count: account.followers_count).downcase
           %td.accounts-table__count
             = relevant_account_timestamp(account)
