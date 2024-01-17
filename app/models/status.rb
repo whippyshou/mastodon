@@ -104,6 +104,7 @@ class Status < ApplicationRecord
   scope :without_replies, -> { where('statuses.reply = FALSE OR statuses.in_reply_to_account_id = statuses.account_id') }
   scope :without_reblogs, -> { where(statuses: { reblog_of_id: nil }) }
   scope :with_public_visibility, -> { where(visibility: :public) }
+  scope :with_unlisted_visibility, -> { where(visibility: :unlisted) }
   scope :without_direct_visibility, -> { where(visibility: [:unlisted ,:public,:private]) }
   scope :with_direct_visibility, -> { where(visibility: :direct) }
   scope :tagged_with, ->(tag_ids) { joins(:statuses_tags).where(statuses_tags: { tag_id: tag_ids }) }
