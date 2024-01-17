@@ -62,8 +62,7 @@ import {
   Explore,
   Onboarding,
   About,
-  PrivacyPolicy,
-  SendDirectMessagesStatuses
+  PrivacyPolicy
 } from './util/async-components';
 import { WrappedSwitch, WrappedRoute } from './util/react_router_helpers';
 
@@ -197,7 +196,7 @@ class SwitchingColumnsArea extends PureComponent {
 
           <WrappedRoute path={['/home', '/timelines/home']} component={HomeTimeline} content={children} />
 
-        <Redirect from='/timelines/public' to='/public' exact />
+          <Redirect from='/timelines/public' to='/public' exact />
           <Redirect from='/timelines/public/local' to='/public/local' exact />
           <WrappedRoute path='/public' exact component={Firehose} componentParams={{ feedType: 'public' }} content={children} />
           <WrappedRoute path='/public/local' exact component={Firehose} componentParams={{ feedType: 'community' }} content={children} />
@@ -210,7 +209,6 @@ class SwitchingColumnsArea extends PureComponent {
 
           <WrappedRoute path='/bookmarks' component={BookmarkedStatuses} content={children} />
           <WrappedRoute path='/pinned' component={PinnedStatuses} content={children} />
-          <WrappedRoute path='/direct_messages' component={SendDirectMessagesStatuses} content={children} />
 
           <WrappedRoute path='/start' exact component={Onboarding} content={children} />
           {/* <WrappedRoute path='/directory' component={Directory} content={children} /> */}
