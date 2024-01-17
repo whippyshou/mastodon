@@ -250,7 +250,7 @@ class PrivacyDropdown extends PureComponent {
     const { value, container, disabled, intl } = this.props;
     const { open, placement } = this.state;
 
-    const valueOption = this.options.find(item => item.value === value);
+    const valueOption = this.options.find(item => item.value === value) || this.options[0];
 
     return (
       <div className={classNames('privacy-dropdown', placement, { active: open })} onKeyDown={this.handleKeyDown}>

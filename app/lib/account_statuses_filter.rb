@@ -7,6 +7,8 @@ class AccountStatusesFilter
     only_media
     exclude_replies
     exclude_reblogs
+    only_direct
+    no_direct
   ).freeze
 
   attr_reader :params, :account, :current_account
@@ -20,6 +22,8 @@ class AccountStatusesFilter
   def results
     scope = initial_scope
 
+    scope.merge!(direct_scope)    if only_direct?
+    scope.merge!(no_direct_scope) if no_direct?
     scope.merge!(pinned_scope)     if pinned?
     scope.merge!(only_media_scope) if only_media?
     scope.merge!(no_replies_scope) if exclude_replies?
@@ -67,6 +71,14 @@ class AccountStatusesFilter
           .where(reblog: { accounts: { domain: nil } }).or(scope.where.not(reblog: { accounts: { domain: current_account.excluded_from_timeline_domains } }))
           .where.not(reblog: { account_id: current_account.excluded_from_timeline_account_ids })
       )
+  end
+
+  def direct_scope
+    Status.with_direct_visibility
+  end
+
+  def no_direct_scope
+    Status.without_direct_visibility
   end
 
   def only_media_scope
@@ -121,6 +133,14 @@ class AccountStatusesFilter
 
   def pinned?
     truthy_param?(:pinned)
+  end
+  
+ def only_direct?
+    truthy_param?(:only_direct)
+  end
+  
+  def no_direct?
+    truthy_param?(:no_direct)
   end
 
   def only_media?
