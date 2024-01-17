@@ -19,8 +19,6 @@ const makeGetStatusIds = (pending = false) => createSelector([
 
     const statusForId = statuses.get(id);
     let showStatus    = true;
-    
-    if (statusForId.get('visibility') === 'direct') return false;
 
     if (statusForId.get('account') === me) return true;
 

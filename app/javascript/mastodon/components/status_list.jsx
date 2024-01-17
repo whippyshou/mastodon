@@ -8,9 +8,6 @@ import { debounce } from 'lodash';
 import RegenerationIndicator from 'mastodon/components/regeneration_indicator';
 
 import StatusContainer from '../containers/status_container';
-import StatusContainerWithoutDm from '../containers/status_container_without_dm';
-import StatusContainerWithDm from '../containers/status_container_with_dm';
-
 
 import { LoadGap } from './load_gap';
 import ScrollableList from './scrollable_list';
