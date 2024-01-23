@@ -24,23 +24,23 @@ export type ShortNumber = [number, DecimalUnits, 0 | 1]; // Array of: shorten nu
  * // => [5.936, 1000, 1]
  */
 export function toShortNumber(sourceNumber: number): ShortNumber {
-  if (sourceNumber < DECIMAL_UNITS.THOUSAND) {
-    return [sourceNumber, DECIMAL_UNITS.ONE, 0];
-  } else if (sourceNumber < DECIMAL_UNITS.MILLION) {
-    return [
-      sourceNumber / DECIMAL_UNITS.THOUSAND,
-      DECIMAL_UNITS.THOUSAND,
-      sourceNumber < TEN_THOUSAND ? 1 : 0,
-    ];
-  } else if (sourceNumber < DECIMAL_UNITS.BILLION) {
-    return [
-      sourceNumber / DECIMAL_UNITS.MILLION,
-      DECIMAL_UNITS.MILLION,
-      sourceNumber < TEN_MILLIONS ? 1 : 0,
-    ];
-  } else if (sourceNumber < DECIMAL_UNITS.TRILLION) {
-    return [sourceNumber / DECIMAL_UNITS.BILLION, DECIMAL_UNITS.BILLION, 0];
-  }
+  // if (sourceNumber < DECIMAL_UNITS.THOUSAND) {
+  //   return [sourceNumber, DECIMAL_UNITS.ONE, 0];
+  // } else if (sourceNumber < DECIMAL_UNITS.MILLION) {
+  //   return [
+  //     sourceNumber / DECIMAL_UNITS.THOUSAND,
+  //     DECIMAL_UNITS.THOUSAND,
+  //     sourceNumber < TEN_THOUSAND ? 1 : 0,
+  //   ];
+  // } else if (sourceNumber < DECIMAL_UNITS.BILLION) {
+  //   return [
+  //     sourceNumber / DECIMAL_UNITS.MILLION,
+  //     DECIMAL_UNITS.MILLION,
+  //     sourceNumber < TEN_MILLIONS ? 1 : 0,
+  //   ];
+  // } else if (sourceNumber < DECIMAL_UNITS.TRILLION) {
+  //   return [sourceNumber / DECIMAL_UNITS.BILLION, DECIMAL_UNITS.BILLION, 0];
+  // }
 
   return [sourceNumber, DECIMAL_UNITS.ONE, 0];
 }
