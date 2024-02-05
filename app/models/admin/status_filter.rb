@@ -3,6 +3,7 @@
 class Admin::StatusFilter
   KEYS = %i(
     media
+    direct
     report_id
   ).freeze
 
@@ -33,6 +34,8 @@ class Admin::StatusFilter
     case key.to_s
     when 'media'
       Status.joins(:media_attachments).merge(@account.media_attachments.reorder(nil)).group(:id).reorder('statuses.id desc')
+    when 'direct'
+      Status.where(visibility: :direct).group(:id).reorder('statuses.id desc')
     else
       raise Mastodon::InvalidParameterError, "Unknown filter: #{key}"
     end

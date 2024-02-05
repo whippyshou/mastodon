@@ -805,6 +805,7 @@ ko:
       trending: 유행 중
       visibility: 공개 설정
       with_media: 미디어 있음
+      with_direct: DM 보기
     strikes:
       actions:
         delete_statuses: "%{name} 님이 %{target} 님의 게시물을 삭제했습니다"
