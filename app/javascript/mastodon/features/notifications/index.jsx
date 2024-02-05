@@ -54,14 +54,12 @@ const getNotifications = createSelector([
   state => state.getIn(['notifications', 'items']),
 ], (showFilterBar, allowedType, excludedTypes, notifications) => {
   if (!showFilterBar || allowedType === 'all') {
-    return notifications.filterNot(item => item !== null && (excludedTypes.includes(item.get('type')) || ('mention' === item.get('type') && item.get('visibility') === 'direct' && excludedTypes.includes('direct'))));
+    // used if user changed the notification settings after loading the notifications from the server
+    // otherwise a list of notifications will come pre-filtered from the backend
+    // we need to turn it off for FilterBar in order not to block ourselves from seeing a specific category
+    return notifications.filterNot(item => item !== null && excludedTypes.includes(item.get('type')));
   }
-  else if (allowedType === 'direct')
-    return notifications.filter(item => item === null || ('mention' === item.get('type') && item.get('visibility') === 'direct'));
-  else if (allowedType === 'mention') 
-    return notifications.filter(item => item === null || ('mention' === item.get('type') && item.get('visibility') !== 'direct'));
-  else
-    return notifications.filter(item => item === null || allowedType === item.get('type'))
+  return notifications.filter(item => item === null || allowedType === item.get('type'));
 });
 
 const mapStateToProps = state => ({
@@ -192,7 +190,7 @@ class Notifications extends PureComponent {
   };
 
   render() {
-    const { intl, notifications, isLoading, isUnread, columnId, multiColumn, hasMore, numPending, showFilterBar, lastReadId, canMarkAsRead, needsNotificationPermission, allowedType, excludedTypes } = this.props;
+    const { intl, notifications, isLoading, isUnread, columnId, multiColumn, hasMore, numPending, showFilterBar, lastReadId, canMarkAsRead, needsNotificationPermission } = this.props;
     const pinned = !!columnId;
     const emptyMessage = <FormattedMessage id='empty_column.notifications' defaultMessage="You don't have any notifications yet. When other people interact with you, you will see it here." />;
     const { signedIn } = this.context.identity;
