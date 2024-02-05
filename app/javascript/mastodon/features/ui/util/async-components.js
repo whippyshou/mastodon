@@ -14,9 +14,6 @@ export function HomeTimeline () {
   return import(/* webpackChunkName: "features/home_timeline" */'../../home_timeline');
 }
 
-export function LocalTimeline () {
-  return import(/* webpackChunkName: "features/home_timeline" */'../../local_timeline');
-}
 export function PublicTimeline () {
   return import(/* webpackChunkName: "features/public_timeline" */'../../public_timeline');
 }
@@ -155,10 +152,6 @@ export function Tesseract () {
 
 export function Audio () {
   return import(/* webpackChunkName: "features/audio" */'../../audio');
-}
-
-export function Directory () {
-  return import(/* webpackChunkName: "features/directory" */'../../directory');
 }
 
 export function Onboarding () {
