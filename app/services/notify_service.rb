@@ -26,7 +26,7 @@ class NotifyService < BaseService
 
     push_notification!
     push_to_conversation! if direct_message?
-    send_email! if email_needed?
+    #send_email! if email_needed?
   rescue ActiveRecord::RecordInvalid
     nil
   end
