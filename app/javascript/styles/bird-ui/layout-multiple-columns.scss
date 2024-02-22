@@ -206,11 +206,18 @@ body.theme-bird-ui-light.layout-multiple-columns {
   --color-accent:#df98a2;
   --color-accent-dark: #be2a4d;
 
+  --color-border: #e9dee0;
+  --color-dim: #c16c80;
+
+  --color-mud: #f0dee2;
+  --color-light-purple: #df98a2;
+
+  --color-bg-compose-form: rgb(192 108 128 / .2);
+  --color-bg-compose-form-focus: rgb(192 108 128/ .4);
+
   --color-bg: #fff;
   --color-fg: #000;
 
-  --color-border: #e9dee0;
-  --color-dim: #c16c80;
   --color-light-text: #1f1b23;
 
   --color-green: #17bf63;
@@ -220,7 +227,7 @@ body.theme-bird-ui-light.layout-multiple-columns {
   --color-focusable-toot: rgba(0, 0, 0, 0.035);
   --color-light-shade: #db9e9e12;
 
-  --color-mud: #f0dee2;
+
 
   --color-black-coral: #9188a6;
   --color-profile-button-hover: #f1eff41a;
@@ -230,15 +237,14 @@ body.theme-bird-ui-light.layout-multiple-columns {
   --color-thread-line: #e1e8ed;
   --color-gainsboro: #8899a6;
 
-  --color-light-purple: #df98a2;
+
   
   --color-dark-electric-blue: #9088a6;
   --color-bg-75: #ffffffbf;
   --color-accent: var(--color-accent-dark);
   --color-ghost-button-text: var(--color-accent-dark);
 
-  --color-bg-compose-form: rgb(192 108 128 / .2);
-  --color-bg-compose-form-focus: rgb(192 108 128/ .4);
+
   --color-hashtag: var(--color-accent-dark);
   --color-mention: var(--color-accent-dark);
 
