@@ -20,6 +20,7 @@ class Notification < ApplicationRecord
   include Paginable
 
   LEGACY_TYPE_CLASS_MAP = {
+    'Direct' => :direct,
     'Mention' => :mention,
     'Status' => :reblog,
     'Follow' => :follow,
@@ -29,6 +30,7 @@ class Notification < ApplicationRecord
   }.freeze
 
   TYPES = %i(
+    direct
     mention
     status
     reblog
@@ -44,6 +46,7 @@ class Notification < ApplicationRecord
   TARGET_STATUS_INCLUDES_BY_TYPE = {
     status: :status,
     reblog: [status: :reblog],
+    direct: [mention: :status], 
     mention: [mention: :status],
     favourite: [favourite: :status],
     poll: [poll: :status],
@@ -57,6 +60,7 @@ class Notification < ApplicationRecord
 
   with_options foreign_key: 'activity_id', optional: true do
     belongs_to :mention, inverse_of: :notification
+    belongs_to :direct, inverse_of: :notification
     belongs_to :status, inverse_of: :notification
     belongs_to :follow, inverse_of: :notification
     belongs_to :follow_request, inverse_of: :notification
@@ -78,10 +82,12 @@ class Notification < ApplicationRecord
     when :status, :update
       status
     when :reblog
-      status&.reblog
+      status&.reblog  
     when :favourite
       favourite&.status
     when :mention
+      mention&.status
+    when :direct
       mention&.status
     when :poll
       poll&.status
@@ -130,7 +136,7 @@ class Notification < ApplicationRecord
           notification.status.reblog = cached_status
         when :favourite
           notification.favourite.status = cached_status
-        when :mention
+        when :mention, :direct
           notification.mention.status = cached_status
         when :poll
           notification.poll.status = cached_status
@@ -152,7 +158,7 @@ class Notification < ApplicationRecord
     case activity_type
     when 'Status', 'Follow', 'Favourite', 'FollowRequest', 'Poll', 'Report'
       self.from_account_id = activity&.account_id
-    when 'Mention'
+    when 'Mention', 'Direct'
       self.from_account_id = activity&.status&.account_id
     when 'Account'
       self.from_account_id = activity&.id

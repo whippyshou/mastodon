@@ -62,13 +62,13 @@ export const loadPending = () => ({
 export function updateNotifications(notification, intlMessages, intlLocale) {
   return (dispatch, getState) => {
     const activeFilter = getState().getIn(['settings', 'notifications', 'quickFilter', 'active']);
-    const showInColumn = activeFilter === 'all' ? getState().getIn(['settings', 'notifications', 'shows', notification.type], true) : notification.type === 'mention' && notification.status.visibility === 'direct'? activeFilter ==='direct': notification.type;
-    const showAlert    =   notification.type === 'mention' && notification.status.visibility === 'direct'? getState().getIn(['settings', 'notifications', 'alerts', 'direct'], true) :  getState().getIn(['settings', 'notifications', 'alerts', notification.type], true);
-    const playSound    = notification.type === 'mention' && notification.status.visibility === 'direct'? getState().getIn(['settings', 'notifications', 'sounds', 'direct'], true) : getState().getIn(['settings', 'notifications', 'sounds', notification.type], true);
+    const showInColumn = activeFilter === 'all' ? getState().getIn(['settings', 'notifications', 'shows', notification.type], true) : activeFilter === notification.type;
+    const showAlert    = getState().getIn(['settings', 'notifications', 'alerts', notification.type], true);
+    const playSound    = getState().getIn(['settings', 'notifications', 'sounds', notification.type], true);
 
     let filtered = false;
 
-    if (['mention', 'status'].includes(notification.type) && notification.status.filtered) {
+    if (['mention', 'status', 'direct'].includes(notification.type) && notification.status.filtered) {
       const filters = notification.status.filtered.filter(result => result.filter.context.includes('notifications'));
 
       if (filters.some(result => result.filter.filter_action === 'hide')) {
@@ -126,7 +126,7 @@ export function updateNotifications(notification, intlMessages, intlLocale) {
 }
 
 const excludeTypesFromSettings = state => state.getIn(['settings', 'notifications', 'shows']).filter(enabled => !enabled).keySeq().toJS();
- 
+
 const excludeTypesFromFilter = filter => {
   const allTypes = ImmutableList([
     'follow',
@@ -142,7 +142,7 @@ const excludeTypesFromFilter = filter => {
     'admin.report',
   ]);
 
-  return allTypes.filterNot(item => filter === 'direct'? item ==='mention':item === filter ).toJS();
+  return allTypes.filterNot(item => item === filter).toJS();
 };
 
 const noOp = () => {};

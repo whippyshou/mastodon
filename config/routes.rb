@@ -21,10 +21,10 @@ Rails.application.routes.draw do
     /publish
     /follow_requests
     /direct_messages
-    /local
     /blocks
     /domain_blocks
     /mutes
+    /public/local
     /followed_tags
     /statuses/(*any)
     /deck/(*any)

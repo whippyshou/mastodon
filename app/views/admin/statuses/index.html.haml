@@ -7,8 +7,9 @@
   .filter-subset
     %strong= t('admin.statuses.media.title')
     %ul
-      %li= filter_link_to t('generic.all'), media: nil, id: nil
-      %li= filter_link_to t('admin.statuses.with_media'), media: '1'
+      %li= filter_link_to t('generic.all'), media: nil, id: nil, direct: nil 
+      %li= filter_link_to t('admin.statuses.with_media'), media: '1', direct: nil
+      %li= filter_link_to t('admin.statuses.with_direct'), media: nil, direct: '1'
   .back-link
     - if params[:report_id]
       = link_to admin_report_path(params[:report_id].to_i) do

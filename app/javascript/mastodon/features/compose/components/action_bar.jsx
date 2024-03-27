@@ -4,7 +4,6 @@ import { PureComponent } from 'react';
 import { defineMessages, injectIntl } from 'react-intl';
 
 import ImmutablePropTypes from 'react-immutable-proptypes';
-
 import DropdownMenuContainer from '../../../containers/dropdown_menu_container';
 
 const messages = defineMessages({
@@ -38,14 +37,14 @@ class ActionBar extends PureComponent {
 
   render () {
     const { intl } = this.props;
-
+    const username = this.props.account.get('acct')
     let menu = [];
 
     menu.push({ text: intl.formatMessage(messages.edit_profile), href: '/settings/profile' });
     menu.push({ text: intl.formatMessage(messages.preferences), href: '/settings/preferences' });
     menu.push({ text: intl.formatMessage(messages.pins), to: '/pinned' });
     menu.push(null);
-    menu.push({ text: intl.formatMessage(messages.directMessages), to: '/direct_messages' });
+    menu.push({ text: intl.formatMessage(messages.directMessages), to:`/@${username}/direct_messages` });
     menu.push(null);
     menu.push({ text: intl.formatMessage(messages.follow_requests), to: '/follow_requests' });
     menu.push({ text: intl.formatMessage(messages.favourites), to: '/favourites' });

@@ -19,8 +19,6 @@
   --color-brand-mastodon-threaded-line: #434264;
   --color-brand-mastodon-text-light: #8493a7;
 
-
-
   /* Colors */
   /* Note: Remember to search for the DIM hex
      and replace it inside the SVG icons if you decide to change it */
@@ -239,7 +237,7 @@ body.theme-bird-ui-light.layout-single-column {
   --color-red: #e0245e;
   --color-red-75: #e0245ebf;
 
-  --color-light-shade: #db9e9e12;
+  --color-light-shade: #00000005;
 
   --color-focusable-toot: rgba(0, 0, 0, 0.035);
   --color-light-text: #1f1b23;
@@ -248,8 +246,8 @@ body.theme-bird-ui-light.layout-single-column {
   
   --color-black-coral: #9188a6;
   
-  --color-profile-button-hover: #db9e9e40;
-  --color-column-link-hover: #db9e9e40;
+  --color-profile-button-hover: #1e1b231a;
+  --color-column-link-hover: #1e1b231a;
 
   --color-modal-overlay: #6a5b8366;
   --color-dark: #f7f9f9;
@@ -3014,7 +3012,9 @@ body.embed .button.logo-button:hover,
   .layout-single-column .column-link[href="/local"] {
     order: 5;
   }
-
+  .layout-single-column .column-link[href="/pulic/local"] {
+    order: 5;
+  }
   .layout-single-column .column-link[href='/follow_requests'] {
     order: 8;
   }
