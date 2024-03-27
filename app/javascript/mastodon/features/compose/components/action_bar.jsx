@@ -4,7 +4,6 @@ import { PureComponent } from 'react';
 import { defineMessages, injectIntl } from 'react-intl';
 
 import ImmutablePropTypes from 'react-immutable-proptypes';
-
 import DropdownMenuContainer from '../../../containers/dropdown_menu_container';
 
 const messages = defineMessages({
@@ -39,7 +38,6 @@ class ActionBar extends PureComponent {
   render () {
     const { intl } = this.props;
     const username = this.props.account.get('acct')
-
     let menu = [];
 
     menu.push({ text: intl.formatMessage(messages.edit_profile), href: '/settings/profile' });
