@@ -108,7 +108,7 @@ class GettingStarted extends ImmutablePureComponent {
     }
 
     navItems.push(
-      <ColumnLink key='community_timeline' icon='hashtag' text={intl.formatMessage(messages.firehose)} to='/local' />,
+      <ColumnLink key='community_timeline' icon='hashtag' text={intl.formatMessage(messages.firehose)} to='/public/local' />,
       // <ColumnLink key='public_timeline' icon='globe' text={intl.formatMessage(messages.public_timeline)} to='/public' />,
     );
 
