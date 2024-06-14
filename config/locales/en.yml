@@ -1732,12 +1732,14 @@ en:
     does_not_match_previous_name: does not match the previous name
   themes:
      contrast: Mastodon (High contrast)
-     default: Mastodon Bird UI (Dark)
+     default: Mastodon - Hunter UI
+     hunter-ui-ninja: Mastodon - salary hunter UI
      bird-ui-light: Mastodon Bird UI (Light)
      bird-ui-dark: Mastodon Bird UI (dark)
      mastodon-light: Mastodon (Light)
      mastodon-dark: Mastodon (Dark)
      theme-ui-dark: Mastodon Bird UI - vanila (dark)
+     theme-ui-light: Mastodon Bird UI - vanila (light)
   time:
     formats:
       default: "%b %d, %Y, %H:%M"

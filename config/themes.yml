@@ -1,5 +1,7 @@
 # default: styles/mastodon-bird-ui-dark.scss
-default: styles/theme-ui-light.scss
+default: styles/guntere-ui-hunter.scss
+hunter-ui-ninja: styles/hunter-ui-ninja.scss
+theme-ui-light: styles/theme-ui-light.scss
 theme-ui-dark : styles/theme-ui-dark.scss
 bird-ui-light: styles/bird-ui-light.scss
 bird-ui-dark: styles/bird-ui-dark.scss
