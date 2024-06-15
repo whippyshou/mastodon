@@ -1703,9 +1703,7 @@ ko:
   themes:
     contrast: 마스토돈 (고대비)
     default: 제16기 S급 헌터 승급심사시험 기본 테마
-    hunter-ui-ninja: 직장인을 위한 월급헌터 테마
-    theme-ui-light: 휘핑 에디션 커스텀 테마 (밝음)
-    theme-ui-dark: 휘핑 에디션 커스텀 테마 (어두움)
+    hunter2-ui-darkhunter: 제16기 S급 헌터 승급심사시험 기본 테마 (어두움)
     mastodon-light: 마스토돈 (밝음)
     mastodon-dark: 마스토돈 (어두움)
     bird-ui-light: 파란새풍 테마 (밝음)
