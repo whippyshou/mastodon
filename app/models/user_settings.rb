@@ -35,15 +35,15 @@ class UserSettings
   end
 
   namespace :notification_emails do
-    setting :follow, default: true
+    setting :follow, default: false
     setting :reblog, default: false
     setting :favourite, default: false
-    setting :mention, default: true
-    setting :follow_request, default: true
-    setting :report, default: true
-    setting :pending_account, default: true
-    setting :trends, default: true
-    setting :appeal, default: true
+    setting :mention, default: false
+    setting :follow_request, default: false
+    setting :report, default: false
+    setting :pending_account, default: false
+    setting :trends, default: false
+    setting :appeal, default: false
     setting :software_updates, default: 'critical', in: %w(none critical patch all)
   end
 
@@ -52,6 +52,7 @@ class UserSettings
     setting :must_be_following, default: false
     setting :must_be_following_dm, default: false
   end
+
 
   def initialize(original_hash)
     @original_hash = original_hash || {}
