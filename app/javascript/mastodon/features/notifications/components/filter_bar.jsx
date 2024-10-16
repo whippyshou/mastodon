@@ -70,13 +70,6 @@ class FilterBar extends PureComponent {
           <Icon id='reply-all' fixedWidth />
         </button>
         <button
-          className={selectedFilter === 'direct' ? 'active' : ''}
-          onClick={this.onClick('direct')}
-          title={intl.formatMessage(tooltips.direct)}
-        >
-          <Icon id='envelope-o' fixedWidth />
-        </button>
-        <button
           className={selectedFilter === 'favourite' ? 'active' : ''}
           onClick={this.onClick('favourite')}
           title={intl.formatMessage(tooltips.favourites)}
