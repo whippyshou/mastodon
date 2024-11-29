@@ -1,7 +1,7 @@
 ---
 ko:
   about:
-    about_mastodon_html: '휘핑 에디션 :: 오리지널 캐릭터의 교류를 목적으로 하는 커뮤니티를 위해 제공되는 마스토돈 에디션.'
+    about_mastodon_html: '제16기 S급 헌터 승급심사시험 :: 휘핑 에디션으로 제작된 자캐 커뮤니티용 마스토돈 서버입니다.'
     contact_missing: 미설정
     contact_unavailable: 없음
     hosted_on: "%{domain}에서 호스팅 되는 마스토돈"
@@ -1702,8 +1702,8 @@ ko:
     does_not_match_previous_name: 이전 이름과 맞지 않습니다
   themes:
     contrast: 마스토돈 (고대비)
-    default: 휘핑 에디션 커스텀 테마 (밝음)
-    theme-ui-dark: 휘핑 에디션 커스텀 테마 (어두움)
+    default: 제16기 S급 헌터 승급심사시험 기본 테마
+    hunter2-ui-darkhunter: 제16기 S급 헌터 승급심사시험 기본 테마 (어두움)
     mastodon-light: 마스토돈 (밝음)
     mastodon-dark: 마스토돈 (어두움)
     bird-ui-light: 파란새풍 테마 (밝음)
