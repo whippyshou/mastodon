@@ -124,7 +124,7 @@ class Compose extends PureComponent {
             )}
   
             {(
-              <Link to='/local' className='drawer__tab' title={intl.formatMessage(messages.firehose)} aria-label={intl.formatMessage(messages.firehose)}><Icon id='hashtag' fixedWidth /></Link>
+              <Link to='/public/local' className='drawer__tab' title={intl.formatMessage(messages.firehose)} aria-label={intl.formatMessage(messages.firehose)}><Icon id='hashtag' fixedWidth /></Link>
             )}
             {(
               <Link to={`/@${username}`} className='drawer__tab' title={intl.formatMessage(messages.admin)} aria-label={intl.formatMessage(messages.admin)}><Icon id='info-circle' fixedWidth /></Link>
